@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PenjualanAdmin</title>
+    <style>
+        body{
+            width: 1440px;
+            height: 1024px;
+            font-family: sans-serif;
+        }
+        main{
+            display: grid;
+            grid-template-columns: 245px 1185px;
+            grid-template-rows: 95px 919px;
+            column-gap: 10px;
+            row-gap: 10px;
+            grid-template-areas: 
+            "s h"
+            "s m";
+        }
+        .side{
+            grid-area: s;
+            display: flex;
+            flex-direction: column;
+        }
+        .groupside{
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            color: #B1B1B1;
+            text-align: center;
+            background-color: white;
+            border: 0px;
+            cursor: pointer;
+            width: 250px;
+            height: 100px;
+        }
+        .judul{
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            font-size: 28px;
+            font-weight: bold;  
+            color: #343C6A;
+        }
+        .Main{
+            grid-area: m;
+            display: flex;
+            justify-content: center;
+            margin-top: 100px;
+        }
+        .Main button{
+            flex: 1;
+            width: 532px;
+            height: 354px;
+            background-color: white;
+            border: 0px;
+            cursor: pointer;
+        }
+        .Main button img{
+            width: 532px;
+            height: 354px;
+            justify-content: center;
+            align-items: center;
+        }
+        .Header{
+            grid-area: h;
+            display: flex;
+            justify-content: center;
+        }
+        .Header label{
+            flex: 1;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #343C6A;
+            font-weight: bold;
+            font-size: 28px;
+        }
+        .Header img{
+            width: 60px;
+            height: 60px;
+        }
+        .groupside img{
+            width: 20px;
+            height: 20px;
+        }
+        .groupside label[value="daftarumk"]{
+            color: #343C6A; 
+        }
+        .groupside label{
+            flex:0.9;
+            font-size: 18px;
+        }
+        .groupsidemain{
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            color: #B1B1B1;
+            text-align: center;
+            background-color: #E3E4FF;
+            border: 0px;
+            cursor: pointer;
+
+        }
+        .groupsidemain img{
+            width: 20px;
+            height: 20px;
+        }
+        .groupsidemain label{
+            flex: 0.9;
+            font-size: 18px;
+            color: #343C6A;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="side">
+            <div class="judul">
+                <label for="">Wovey</label>
+                <label for="">Foodcourt.</label>
+            </div>
+            <button class="groupside">
+                <img src="Assets/daftarUMK/house.svg" alt="">
+                <label for="">Dashboard</label>
+            </button>
+            <button class="groupside">
+                <img src="Assets/admin/book.svg" alt="">
+                <label for="">Daftar UMK</label>
+            </button>
+            <button class="groupside">
+                <img src="Assets/admin/fileceklist.svg" alt="">
+                <label for="">Verifikasi</label>
+                <img src="Assets/admin/notif.svg" alt="" style="width:40px;">
+            </button>
+            <button class="groupsidemain">
+                <img src="Assets/penjualan/stonks.svg" alt="">
+                <label for="" value="daftarumk">Penjualan</label>
+            </button>
+            <button class="groupside">
+                <img src="Assets/admin/logout.svg" alt="">
+                <label for="">Log Out</label>
+            </button>
+            <button class="groupside">
+                <img src="Assets/admin/help.svg" alt="">
+                <label for="">Bantuan</label>
+            </button>
+        </div>
+        <div class="Header">
+            <label for="">Penjualan</label>
+        </div>
+        <div class="Main">
+            <button>
+                <img src="Assets/Penjualan/produk.svg" alt="">
+            </button>
+            <button>
+                <img src="/Assets/Penjualan/umk.svg" alt="">
+            </button>
+        </div>
+    </main>
+</body>
+</html>
