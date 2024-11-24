@@ -1,101 +1,99 @@
-drop table if exists Nota
-drop table if exists ProdukUMK
-drop table if exists Pendaftaran
-drop table if exists Transaksi
-drop table if exists UMK
-drop table if exists Produk
-drop table if exists Administrator
-drop table if exists JenisTransaksi
-drop table if exists Kota
-drop table if exists Provinsi
+DROP TABLE IF EXISTS Nota;
+DROP TABLE IF EXISTS ProdukUMK;
+DROP TABLE IF EXISTS Pendaftaran;
+DROP TABLE IF EXISTS Transaksi;
+DROP TABLE IF EXISTS UMK;
+DROP TABLE IF EXISTS Produk;
+DROP TABLE IF EXISTS Administrator;
+DROP TABLE IF EXISTS JenisTransaksi;
+DROP TABLE IF EXISTS Kota;
+DROP TABLE IF EXISTS Provinsi;
 
-create table Provinsi(
-	IdProvinsi int PRIMARY KEY,
-	NamaProvinsi varchar(255)
-)
+CREATE TABLE Provinsi (
+    IdProvinsi INT PRIMARY KEY,
+    NamaProvinsi VARCHAR(255)
+);
 
-create table Kota(
-	IdKota int PRIMARY KEY,
-	IdProvinsi int FOREIGN KEY REFERENCES Provinsi,
-	NamaKota varchar(255)
-)
+CREATE TABLE Kota (
+    IdKota INT PRIMARY KEY,
+    IdProvinsi INT REFERENCES Provinsi,
+    NamaKota VARCHAR(255)
+);
 
-create table JenisTransaksi(
-	IdJenis int PRIMARY KEY,
-	Jenis varchar(255)
-)
+CREATE TABLE JenisTransaksi (
+    IdJenis INT PRIMARY KEY,
+    Jenis VARCHAR(255)
+);
 
-create table Administrator(
-	NoHp varchar(255) PRIMARY KEY
-)
+CREATE TABLE Administrator (
+    NoHp VARCHAR(255) PRIMARY KEY
+);
 
-create table Produk(
-	IdProduk int IDENTITY(1,1) PRIMARY KEY,
-	Nama varchar(255),
-	Deskripsi varchar(255),
-	Foto varchar(255),
-	Satuan varchar(255),
-	Harga money
-)
+CREATE TABLE Produk (
+    IdProduk INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    Nama VARCHAR(255),
+    Deskripsi VARCHAR(255),
+    Foto VARCHAR(255),
+    Satuan VARCHAR(255),
+    Harga NUMERIC
+);
 
-create table UMK(
-	NoHp varchar(255) PRIMARY KEY,
-	NamaUMK varchar(255),
-	Deskripsi varchar(255),
-	Logo varchar(255),
-	Alamat varchar(255),
-	NamaPemilik varchar(255),
-	IdKota int FOREIGN KEY REFERENCES Kota,
-	IdPendaftaran int IDENTITY(1,1),
-	Status varchar(255),
-	Tanggal date,
-	Saldo money,
-)
+CREATE TABLE UMK (
+    NoHp VARCHAR(255) PRIMARY KEY,
+    NamaUMK VARCHAR(255),
+    Deskripsi VARCHAR(255),
+    Logo VARCHAR(255),
+    Alamat VARCHAR(255),
+	Status VARCHAR(255),
+	Tanggal DATE,
+	Saldo Numeric,
+    NamaPemilik VARCHAR(255),
+    IdKota INT REFERENCES Kota
+);
 
 create table Transaksi(
-	IdTransaksi int IDENTITY(1,1) PRIMARY KEY,
+	IdTransaksi int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
 	Nominal money,
-	IdJenis int FOREIGN KEY REFERENCES JenisTransaksi,
+	IdJenis int REFERENCES JenisTransaksi,
 	Tanggal date,
-	NoHpUMK varchar(255) FOREIGN KEY REFERENCES UMK
-)
+	NoHpUMK varchar(255) REFERENCES UMK
+);
 
 create table Pendaftaran(
-	IdPendaftaran int IDENTITY(1,1) PRIMARY KEY,
+	IdPendaftaran int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
 	Tanggal date,
 	Status varchar(255),
-	NoHpAdmin varchar(255) FOREIGN KEY REFERENCES Administrator
-)
-
+	NoHpAdmin varchar(255) REFERENCES Administrator
+);
 
 create table ProdukUMK(
-	NoHpUMK varchar(255) FOREIGN KEY REFERENCES UMK,
-	IdProduk int IDENTITY(1,1) FOREIGN KEY REFERENCES Produk
-)
+	NoHpUMK varchar(255) REFERENCES UMK,
+	IdProduk int GENERATED ALWAYS AS IDENTITY REFERENCES Produk
+);
 
 create table Nota(
-	IdTransaksi int FOREIGN KEY REFERENCES Transaksi,
-	IdProduk int FOREIGN KEY REFERENCES Produk,
-	Kuantitas int,
-)
+	IdTransaksi int REFERENCES Transaksi,
+	IdProduk int REFERENCES Produk,
+	Kuantitas int
+);
 
 --TABEL JENIS TRANSAKSI
 insert into JenisTransaksi
-values (1, 'Setor modal')
+values (1, 'Setor modal');
 insert into JenisTransaksi
-values (2, 'Penjualan produk')
+values (2, 'Penjualan produk');
 insert into JenisTransaksi
-values (3, 'Pengeluaran operasional')
+values (3, 'Pengeluaran operasional');
 insert into JenisTransaksi
-values (4, 'Penarikan modal')
+values (4, 'Penarikan modal');
 
 --TABEL ADMINISTRATOR
 insert into Administrator
-values ('081')
+values ('081');
 insert into Administrator
-values ('082')
+values ('082');
 insert into Administrator
-values ('083')
+values ('083');
 
 --TABEL PROVINSI
 INSERT INTO Provinsi VALUES 
@@ -296,41 +294,41 @@ values ('082134', 'Nasgor Jawir', 'menjual berbagai macam nasi goreng', 'Logo Na
 
 --TABEL PENDAFTARAN
 insert into Pendaftaran (Status, Tanggal, NoHpAdmin)
-values ('Valid', '20240102', '081')
+values ('Valid', '20240102', '081');
 insert into Pendaftaran (Status, Tanggal, NoHpAdmin)
-values ('Valid', '20240110', '081')
+values ('Valid', '20240110', '081');
 insert into Pendaftaran (Status, Tanggal, NoHpAdmin)
-values ('Valid', '20240203', '082')
+values ('Valid', '20240203', '082');
 insert into Pendaftaran (Status, Tanggal, NoHpAdmin)
-values ('Valid', '20240202', '082')
+values ('Valid', '20240202', '082');
 insert into Pendaftaran (Status, Tanggal, NoHpAdmin)
-values ('Valid', '20240203', '082')
+values ('Valid', '20240203', '082');
 insert into Pendaftaran (Status, Tanggal, NoHpAdmin)
-values ('Valid', '20240306', '082')
+values ('Valid', '20240306', '082');
 
 --TABEL PRODUK
 insert into Produk (Nama, Deskripsi, Foto, Satuan, Harga)
-values ('Beras', 'Beras putih pandan wangi', 'foto1', 'kg', 14000)
+values ('Beras', 'Beras putih pandan wangi', 'foto1', 'kg', 14000);
 insert into Produk (Nama, Deskripsi, Foto, Satuan, Harga)
-values ('Minyak', 'Minyak goreng', 'foto2', 'liter', 20000)
+values ('Minyak', 'Minyak goreng', 'foto2', 'liter', 20000);
 insert into Produk (Nama, Deskripsi, Foto, Satuan, Harga)
-values ('Mie Telur', 'Mie telur ayam', 'foto3', 'bungkus', 15000)
+values ('Mie Telur', 'Mie telur ayam', 'foto3', 'bungkus', 15000);
 insert into Produk (Nama, Deskripsi, Foto, Satuan, Harga)
-values ('Telur', 'Telur ayam negri', 'foto4', 'kg', 29000)
+values ('Telur', 'Telur ayam negri', 'foto4', 'kg', 29000);
 insert into Produk (Nama, Deskripsi, Foto, Satuan, Harga)
-values ('Tepung terigu', 'Tepung terigu serbaguna', 'foto5', 'kg', 12000)
+values ('Tepung terigu', 'Tepung terigu serbaguna', 'foto5', 'kg', 12000);
 insert into Produk (Nama, Deskripsi, Foto, Satuan, Harga)
-values ('Gula', 'Gula pasir putih 500 gram', 'foto6', 'bungkus', 10000)
+values ('Gula', 'Gula pasir putih 500 gram', 'foto6', 'bungkus', 10000);
 insert into Produk (Nama, Deskripsi, Foto, Satuan, Harga)
-values ('Mie instan', 'Mie instan', 'foto7', 'buah', 2000)
+values ('Mie instan', 'Mie instan', 'foto7', 'buah', 2000);
 insert into Produk (Nama, Deskripsi, Foto, Satuan, Harga)
-values ('Roti coklat', 'Roti dengan isi coklat pasta', 'foto8', 'buah', 10000)
+values ('Roti coklat', 'Roti dengan isi coklat pasta', 'foto8', 'buah', 10000);
 insert into Produk (Nama, Deskripsi, Foto, Satuan, Harga)
-values ('Roti keju', 'Roti dengan taburan keju diatas', 'foto9', 'buah', 12000)
+values ('Roti keju', 'Roti dengan taburan keju diatas', 'foto9', 'buah', 12000);
 insert into Produk (Nama, Deskripsi, Foto, Satuan, Harga)
-values ('Roti kismis', 'Roti dengan isian kismis', 'foto10', 'buah', 12000)
+values ('Roti kismis', 'Roti dengan isian kismis', 'foto10', 'buah', 12000);
 insert into Produk (Nama, Deskripsi, Foto, Satuan, Harga)
-values ('Roti srikaya', 'Roti dengan isian selaian srikaya', 'foto11', 'buah', 14000)
+values ('Roti srikaya', 'Roti dengan isian selaian srikaya', 'foto11', 'buah', 14000);
 insert into Produk (Nama, Deskripsi, Foto, Satuan, Harga)
 values ('Salmon Maki', 'sushi dengan isian salmon mentah', 'foto12', 'plater', 35000);
 insert into Produk (Nama, Deskripsi, Foto, Satuan, Harga)
@@ -357,16 +355,16 @@ insert into Produk (Nama, Deskripsi, Foto, Satuan, Harga)
 values ('Tabung Gas 3 kg', 'Tabung gas berwarna hijau dengan muatan 3 kg untuk subsidi', 'foto23', 'tabung', 23000);
 
 --TABEL PRODUK UMK
-insert into ProdukUMK (NoHpUMK) values ('081234')
-insert into ProdukUMK (NoHpUMK) values ('081234')
-insert into ProdukUMK (NoHpUMK) values ('081234')
-insert into ProdukUMK (NoHpUMK) values ('081234')
-insert into ProdukUMK (NoHpUMK) values ('081234')
-insert into ProdukUMK (NoHpUMK) values ('081234')
-insert into ProdukUMK (NoHpUMK) values ('081234')
-insert into ProdukUMK (NoHpUMK) values ('082222')
-insert into ProdukUMK (NoHpUMK) values ('082222')
-insert into ProdukUMK (NoHpUMK) values ('082222')
+insert into ProdukUMK (NoHpUMK) values ('081234');
+insert into ProdukUMK (NoHpUMK) values ('081234');
+insert into ProdukUMK (NoHpUMK) values ('081234');
+insert into ProdukUMK (NoHpUMK) values ('081234');
+insert into ProdukUMK (NoHpUMK) values ('081234');
+insert into ProdukUMK (NoHpUMK) values ('081234');
+insert into ProdukUMK (NoHpUMK) values ('081234');
+insert into ProdukUMK (NoHpUMK) values ('082222');
+insert into ProdukUMK (NoHpUMK) values ('082222');
+insert into ProdukUMK (NoHpUMK) values ('082222');
 insert into ProdukUMK (NoHpUMK) values ('082222');
 insert into ProdukUMK (NoHpUMK) values ('083131');
 insert into ProdukUMK (NoHpUMK) values ('083131');
@@ -386,157 +384,157 @@ insert into Transaksi (Nominal, Tanggal, NoHpUMK, IdJenis)
 values (300000, '20240102', '081234', 1);
 UPDATE UMK
 SET Saldo = 300000
-WHERE NoHp = '081234'
+WHERE NoHp = '081234';
 
 insert into Transaksi (Nominal, Tanggal, NoHpUMK, IdJenis)
 values (1000000, '20240110', '082222', 1);
 UPDATE UMK
 SET Saldo = 1000000
-WHERE NoHp = '082222'
+WHERE NoHp = '082222';
 
 insert into Transaksi (Nominal, Tanggal, NoHpUMK, IdJenis)
 values (2000000, '20240203', '082121', 1);
 UPDATE UMK
 SET Saldo = 2000000
-WHERE NoHp = '082121'
+WHERE NoHp = '082121';
 
 insert into Transaksi (Nominal, Tanggal, NoHpUMK, IdJenis)
 values (3500000, '20240202', '083131', 1);
 UPDATE UMK
 SET Saldo = 3500000
-WHERE NoHp = '083131'
+WHERE NoHp = '083131';
 
 insert into Transaksi (Nominal, Tanggal, NoHpUMK, IdJenis)
 values (7000000, '20240203', '089922', 1);
 UPDATE UMK
 SET Saldo = 7000000
-WHERE NoHp = '089922'
+WHERE NoHp = '089922';
 
 insert into Transaksi (Nominal, Tanggal, NoHpUMK, IdJenis)
 values (2000000, '20240306', '082134', 1);
 UPDATE UMK
 SET Saldo = 2000000
-WHERE NoHp = '082134'
+WHERE NoHp = '082134';
 
 insert into Transaksi (Nominal, Tanggal, NoHpUMK, IdJenis)
 values (110000, '2024-01-03', '081234', 2);
 UPDATE UMK
 SET Saldo = Saldo + 110000
-WHERE NoHp = '081234'
+WHERE NoHp = '081234';
 
 insert into Transaksi (Nominal, Tanggal, NoHpUMK, IdJenis)
 values (88000, '2024-01-11', '081234', 2);
 UPDATE UMK
 SET Saldo = Saldo + 88000
-WHERE NoHp = '081234'
+WHERE NoHp = '081234';
 
 insert into Transaksi (Nominal, Tanggal, NoHpUMK, IdJenis)
 values (500000, '2024-01-12', '082222', 3);
 UPDATE UMK
 SET Saldo = Saldo - 500000
-WHERE NoHp = '082222'
+WHERE NoHp = '082222';
 
 insert into Transaksi (Nominal, Tanggal, NoHpUMK, IdJenis)
 values (100000, '2024-01-13', '081234', 3);
 UPDATE UMK
 SET Saldo = Saldo - 100000
-WHERE NoHp = '081234'
+WHERE NoHp = '081234';
 
 insert into Transaksi (Nominal, Tanggal, NoHpUMK, IdJenis)
 values (40000, '2024-02-14', '082222', 2);
 UPDATE UMK
 SET Saldo = Saldo + 40000
-WHERE NoHp = '082222'
+WHERE NoHp = '082222';
 
 insert into Transaksi (Nominal, Tanggal, NoHpUMK, IdJenis)
 values (24000, '2024-02-23', '083131', 2);
 UPDATE UMK
 SET Saldo = Saldo + 24000
-WHERE NoHp = '083131'
+WHERE NoHp = '083131';
 
 insert into Transaksi (Nominal, Tanggal, NoHpUMK, IdJenis)
 values (365000, '2024-03-10', '082134', 2);
 UPDATE UMK
 SET Saldo = Saldo + 365000
-WHERE NoHp = '082134'
+WHERE NoHp = '082134';
 
 insert into Transaksi (Nominal, Tanggal, NoHpUMK, IdJenis)
 values (130000, '2024-03-16', '083131', 2);
 UPDATE UMK
 SET Saldo = Saldo + 130000
-WHERE NoHp = '083131'
+WHERE NoHp = '083131';
 
 insert into Transaksi (Nominal, Tanggal, NoHpUMK, IdJenis)
 values (76000, '2024-03-17', '089922', 2);
 UPDATE UMK
 SET Saldo = Saldo + 76000
-WHERE NoHp = '089922'
+WHERE NoHp = '089922';
 
 insert into Transaksi (Nominal, Tanggal, NoHpUMK, IdJenis)
 values (94000, '2024-03-18', '082134', 2);
 UPDATE UMK
 SET Saldo = Saldo + 94000
-WHERE NoHp = '082134'
+WHERE NoHp = '082134';
 
 insert into Transaksi (Nominal, Tanggal, NoHpUMK, IdJenis)
 values (30000, '2024-03-30', '081234', 2);
 UPDATE UMK
 SET Saldo = Saldo + 30000
-WHERE NoHp = '081234'
+WHERE NoHp = '081234';
 
 insert into Transaksi (Nominal, Tanggal, NoHpUMK, IdJenis)
 values (120000, '2024-03-30', '081234', 2);
 UPDATE UMK
 SET Saldo = Saldo + 120000
-WHERE NoHp = '081234'
+WHERE NoHp = '081234';
 
 insert into Transaksi (Nominal, Tanggal, NoHpUMK, IdJenis)
 values (500000, '2024-03-26', '083131', 3);
 UPDATE UMK
 SET Saldo = Saldo - 500000
-WHERE NoHp = '083131'
+WHERE NoHp = '083131';
 
 insert into Transaksi (Nominal, Tanggal, NoHpUMK, IdJenis)
 values (130000, '2024-02-15', '089922', 3);
 UPDATE UMK
 SET Saldo = Saldo - 130000
-WHERE NoHp = '089922'
+WHERE NoHp = '089922';
 
 insert into Transaksi (Nominal, Tanggal, NoHpUMK, IdJenis)
 values (100000, '2024-03-08', '082134', 4);
 UPDATE UMK
 SET Saldo = Saldo - 100000
-WHERE NoHp = '082134'
+WHERE NoHp = '082134';
 
 insert into Transaksi (Nominal, Tanggal, NoHpUMK, IdJenis)
 values (65000, '2024-03-09', '082121', 2);
 UPDATE UMK
 SET Saldo = Saldo + 65000
-WHERE NoHp = '082121'
+WHERE NoHp = '082121';
 
 insert into Transaksi (Nominal, Tanggal, NoHpUMK, IdJenis)
 values (23000, '2024-02-26', '082121', 2);
 UPDATE UMK
 SET Saldo = Saldo + 23000
-WHERE NoHp = '082121'
+WHERE NoHp = '082121';
 
 insert into Transaksi (Nominal, Tanggal, NoHpUMK, IdJenis)
 values (44000, '2024-02-28', '082222', 2);
 UPDATE UMK
 SET Saldo = Saldo + 44000
-WHERE NoHp = '082222'
+WHERE NoHp = '082222';
 
 insert into Transaksi (Nominal, Tanggal, NoHpUMK, IdJenis)
 values (49000, '2024-02-21', '081234', 2);
 UPDATE UMK
 SET Saldo = Saldo + 49000
-WHERE NoHp = '081234'
+WHERE NoHp = '081234';
 
 insert into Transaksi (Nominal, Tanggal, NoHpUMK, IdJenis)
 values (170000, '2024-03-16', '082134', 2);
 UPDATE UMK
 SET Saldo = Saldo + 170000
-WHERE NoHp = '082134'
+WHERE NoHp = '082134';
 
 --TABEL NOTA
 INSERT INTO Nota (IdTransaksi, IdProduk, Kuantitas) VALUES
