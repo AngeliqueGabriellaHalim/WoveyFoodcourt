@@ -44,6 +44,7 @@ CREATE TABLE UMK (
     Deskripsi VARCHAR(255),
     Logo VARCHAR(255),
     Alamat VARCHAR(255),
+	IDPendaftaran int GENERATED ALWAYS AS IDENTITY,
 	Status VARCHAR(255),
 	Tanggal DATE,
 	Saldo Numeric,
