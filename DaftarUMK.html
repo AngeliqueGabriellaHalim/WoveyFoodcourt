@@ -6,7 +6,7 @@
     <title>DaftarUMK</title>
     <style>
         body{
-            width: 1440px;
+            width: 100%;
             height: 1024px;
             font-family: sans-serif;
         }
@@ -56,33 +56,30 @@
             border-radius: 9px;
             margin: 70px;
         }
-        .groupmain{
-            padding: 20px;
+        table tr td button[name="Detail"]{
+            font-size: 16px;
+            width: 90px;
+            height: 25px;
+            border-radius: 15px;
             justify-content: center;
+            background-color: #0058EA;
+            color: white;
+            cursor: pointer;
         }
-        .groupmain label{
-            display: flex;
-            padding: 20px;
-            padding-right: 65px;
+        table tr td button[name="Detail"]:hover{
+            background-color:rgba(0, 88, 234, 0.8);
+        }
+        table tr td button{
             font-size: 16px;
-        }
-        .groupmain label:nth-child(1){
-            color: #343C6A;
-            font-size: 17px;
-        }
-        .groupmain label[value="detail"]{
-            padding-bottom: 0px;
-            padding-top: 1px;
-        }
-        .groupmain button{
-            display: flex;
-            font-size: 16px;
-            margin-top: 34px;
-            width: 80px;
+            width: 90px;
             height: 25px;
             border-radius: 15px;
             justify-content: center;
             background-color: white;
+            cursor: pointer;
+        }
+        table tr td button:hover{
+            background-color:rgba(0, 88, 234, 0.2);
         }
         .Header{
             grid-area: h;
@@ -142,6 +139,13 @@
             padding-left:65px;
             color: #343C6A;
         }
+        table{
+            border-spacing: 70px 30px;
+        }
+        table tr th, table tr td{
+            text-align: center;
+            min-width: 120px;
+        }
     </style>
 </head>
 <body>
@@ -185,56 +189,65 @@
                 <h1>Daftar UMK</h2>
             </div>
             <div class="innerborder">
-                <div class="groupmain">
-                    <label for="">No.HP</label>
-                    <label for="">081234567890</label>
-                    <label for="">082812687268</label>
-                    <label for="">082762637628</label>
-                    <label for="">081283688253</label>
-                    <label for="">089823651839</label>
-                    <label for="">086325283497</label>
-                    <label for="">087837837868</label>
-                </div>
-                <div class="groupmain">
-                    <label for="">Nama UMK</label>
-                    <label for="">081234567890</label>
-                    <label for="">082812687268</label>
-                    <label for="">082762637628</label>
-                    <label for="">081283688253</label>
-                    <label for="">089823651839</label>
-                    <label for="">086325283497</label>
-                    <label for="">087837837868</label>
-                </div>
-                <div class="groupmain">
-                    <label for="">Nama Pemilik</label>
-                    <label for="">081234567890</label>
-                    <label for="">082812687268</label>
-                    <label for="">082762637628</label>
-                    <label for="">081283688253</label>
-                    <label for="">089823651839</label>
-                    <label for="">086325283497</label>
-                    <label for="">087837837868</label>
-                </div>
-                <div class="groupmain">
-                    <label for="">Tanggal</label>
-                    <label for="">081234567890</label>
-                    <label for="">082812687268</label>
-                    <label for="">082762637628</label>
-                    <label for="">081283688253</label>
-                    <label for="">089823651839</label>
-                    <label for="">086325283497</label>
-                    <label for="">087837837868</label>
-                </div>
-                <div class="groupmain">
-                    <label for="" value="detail">Detail</label>
-                    <button>Detail</button>
-                    <button>Detail</button>
-                    <button>Detail</button>
-                    <button>Detail</button>
-                    <button>Detail</button>
-                    <button>Detail</button>
-                    <button>Detail</button>
-                </div>
+                <table>
+                    <tr style="color: #343C6A;">
+                        <th>No.HP</th>
+                        <th>Nama UMK</th>
+                        <th>Pemilik UMK</th>
+                        <th>Tanggal</th>
+                        <th>Detail UMK</th> 
+                    </tr>
+                    <tr>
+                        <td>081234567890</td>
+                        <td>Warung Sate Bu Ngantuk</td>
+                        <td>Turu Asinta</td>
+                        <td>11-Nov-2023</td>
+                        <td><button type="button">Detail</button></td>
+                    </tr>
+                    <tr>
+                        <td>082812687268</td>
+                        <td>Ayam Madu Pak Gembol</td>
+                        <td>Gembol Wijaya</td>
+                        <td>01-Jan-2024</td>
+                        <td><button type="button">Detail</button></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>082762637628</td>
+                        <td>Eskrim Suka Hati</td>
+                        <td>Maria Shakila</td>
+                        <td>10-Okt-2021</td>
+                        <td><button type="button">Detail</button></td>
+                    </tr>
+                    <tr> 
+                        <td>081283688253</td>
+                        <td>Nona Bakery</td>
+                        <td>Nono Nana</td>
+                        <td>07-Juli-2020</td>
+                        <td><button type="button">Detail</button></td>
+                    </tr>
+                    <tr>
+                        <td>081234567890</td>
+                        <td>Warung Ibu Pur</td>
+                        <td>Asyilah Pur</td>
+                        <td>09-Sept-2021</td>
+                        <td><button type="button" >Detail</button></td>
+                    </tr>
+                    <tr>
+                        <td>08632528349</td>
+                        <td>Siomay Mang Ujang</td>
+                        <td>Ujang Asep</td>
+                        <td>10-Okt-2023</td>
+                        <td><button type="button" >Detail</button></td>
+                    </tr>
+                    <tr>
+                        <td>087837837868</td>
+                        <td>Kedai Istimewa</td>
+                        <td>Albert Einstein</td>
+                        <td>12-Des-2021</td>
+                        <td><button type="button" >Detail</button></td>
+                    </tr>
+                </table>
             </div>
             <div class="page">
                 <img src="Assets/DaftarUMK/page.svg" alt="">
