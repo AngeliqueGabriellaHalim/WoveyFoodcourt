@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation</title>
+    <style>
+        body{
+            background-image: url(/Assets/background.svg);
+            background-repeat: no-repeat;
+            width: 100%;
+            background-size: 100%;
+            display: flex;
+            justify-content: center;
+            margin-top: 250px;
+            font-family: sans-serif;
+        }
+        main{
+            background-color: white;
+            width: 673px;
+            height: 491px;
+            border: 1px solid black;
+            border-radius: 25px;
+            padding: 10px;
+            justify-content: center;
+        }
+        .attribute{
+            display: grid;
+            grid-template-columns: 650px;
+            grid-template-rows: 100px 140px 60px 20px 50px 50px;
+            grid-template-areas: 
+            "h"
+            "m"
+            "i1"
+            "i2"
+            "i3"
+            "b";
+        }
+        .header{
+            grid-area: h;
+            text-align: right;
+        }
+        .header button{
+            background-color: white;
+            border: 0px;
+        }
+        .main{
+            grid-area: m;
+            text-align: center;
+        }
+        .main img{
+            width: 140px;
+            height: 140px;
+        }
+        .item1{
+            grid-area: i1;
+            text-align: center;
+            font-size: 40px;
+            color: #343C6A;
+            font-weight: bold;
+        }
+        .item2{
+            grid-area: i2;
+            text-align: center;
+            color: grey;
+        }
+        .item3{
+            grid-area: i3;
+            text-align: center;
+            color: grey;
+        }
+        .button{
+            display:  flex;
+            justify-content: center;
+        }
+        .button button:nth-child(1){
+            margin-right: 200px;
+            background-color: #F95C57;
+            color: white;
+            border: 0px;
+            border-radius: 15px;
+            width: 150px;
+            height: 54px;
+        }
+        .button button:nth-child(2){
+            background-color: #09B96D;
+            color: white;
+            border: 0px;
+            border-radius: 15px;
+            width: 150px;
+            height: 54px;
+        }
+        .button button:nth-child(2):hover{
+            background-color: rgba(9, 185, 109, 0.5);
+        }
+        .button button:nth-child(1):hover{
+            background-color: rgba(249, 92, 87, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="attribute">
+            <div class="header">
+                <button type="button" onclick="window.location.href='VerifikasiUMK.html'"><img src="/Assets/cross.svg" alt=""></button>
+            </div>
+            <div class="main">
+                <img src="/Assets/file.svg" alt="">
+            </div>
+            <div class="item1">
+                <label for="">Verifikasi UMK BipBopBap?</label>
+            </div>
+            <div class="item2">
+                <label for="">Pastikan anda telat memeriksa semua informasi</label>
+            </div>
+            <div class="item3">
+                <label for="">UMK dengan benar</label>
+            </div>
+            <div class="button">
+                <button type="button" onclick="window.location.href='VerifikasiUMK.html'">Tolak</button>
+                <button type="button" onclick="window.location.href='StatusSetuju.html'">Setujui</button>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
