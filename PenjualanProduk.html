@@ -6,7 +6,7 @@
     <title>PenjualanAdmin</title>
     <style>
         body{
-            width: 1440px;
+            width: 100%;
             height: 1024px;
             font-family: sans-serif;
         }
@@ -56,36 +56,6 @@
             border-radius: 9px;
             margin: 70px;
         }
-        .groupmain{
-            padding: 20px;
-            justify-content: center;
-        }
-        .groupmain label{
-            display: flex;
-            padding: 20px;
-            padding-right: 100px;
-            font-size: 16px;
-            justify-content: center;
-            align-items: center;
-        }
-        .groupmain label:nth-child(1){
-            color: #343C6A;
-            font-size: 17px;
-        }
-        .groupmain label[value="detail"]{
-            padding-bottom: 0px;
-            padding-top: 1px;
-        }
-        .groupmain button{
-            display: flex;
-            font-size: 16px;
-            margin-top: 34px;
-            width: 80px;
-            height: 25px;
-            border-radius: 15px;
-            justify-content: center;
-            background-color: white;
-        }
         .Header{
             grid-area: h;
             display: flex;
@@ -124,7 +94,13 @@
             background-color: #E3E4FF;
             border: 0px;
             cursor: pointer;
-
+        }
+        table{
+            border-spacing: 160px 30px;
+        }
+        table tr th, table tr td{
+            text-align: center;
+            min-width: 120px;
         }
         .groupsidemain img{
             width: 20px;
@@ -157,6 +133,10 @@
             border-radius: 15px;
             background-color: #0058EA;
             color: white;
+            cursor: pointer;
+        }
+        .head button:hover{
+            background-color:rgba(0, 88, 234, 0.8);
         }
     </style>
 </head>
@@ -194,47 +174,54 @@
             </button>
         </div>
         <div class="Header">
-            <label for=""><u>Penjualan</u> > <u>Produk</u></label>
+            <label for=""><a href="" style="color:#343C6A">Penjualan</a> > Produk</label>
         </div>
         <div class="Main">
             <div class="head">
                 <h1>Daftar Produk Terlaris <img src="/Assets/Penjualan/tandatanya.svg" alt=""></h1>
                 <h2>Banyak Produk</h2>
-                <input type="text" value="Masukkan angka (1-1000)" style="color: grey;"> <button>OK</button>
+                <input type="text" placeholder="Masukkan angka (1-1000)"> <button type="button">OK</button>
             </div>
             <div class="innerborder">
-                <div class="groupmain">
-                    <label for="">Nama produk</label>
-                    <label for="">Milk Bun</label>
-                    <label for="">Roti Tawar</label>
-                    <label for="">Milk Cornet</label>
-                    <label for="">Egg Tart</label>
-                    <label for="">Roti Coklat</label>
-                </div>
-                <div class="groupmain">
-                    <label for="">Jumlah Terjual</label>
-                    <label for="">5431</label>
-                    <label for="">4209</label>
-                    <label for="">3989</label>
-                    <label for="">3791</label>
-                    <label for="">2891</label>
-                </div>
-                <div class="groupmain">
-                    <label for="">UMK</label>
-                    <label for="">Toko Wombi</label>
-                    <label for="">Toko Wombu</label>
-                    <label for="">Toko Womba</label>
-                    <label for="">Toko Wombe</label>
-                    <label for="">Toko Wombo</label>
-                </div>
-                <div class="groupmain">
-                    <label for="">No. HP</label>
-                    <label for="">08298174</label>
-                    <label for="">08871365</label>
-                    <label for="">08892357</label>
-                    <label for="">08517356</label>
-                    <label for="">08126543</label>
-                </div>
+                <table>
+                    <tr style="color: #343C6A;">
+                        <th>Nama produk</th>
+                        <th>Jumlah Terjual</th>
+                        <th>UMK</th>
+                        <th>No.HP</th>
+                    </tr>
+                    <tr>
+                        <td>Milk Bun</td>
+                        <td>5431</td>
+                        <td>Toko Wombi</td>
+                        <td>08298174</td>
+                    </tr>
+                    <tr>
+                        <td>Roti Tawar</td>
+                        <td>4209</td>
+                        <td>Toko Wombu</td>
+                        <td>08871365</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>Milk Cornet</td>
+                        <td>3989</td>
+                        <td>Toko Womba</td>
+                        <td>08892357</td>
+                    </tr>
+                    <tr>
+                        <td>Egg Tart</td>
+                        <td>3791</td>
+                        <td>Toko Wombe</td>
+                        <td>08517356</td>
+                    </tr>
+                    <tr>
+                        <td>Roti Coklat</td>
+                        <td>2891</td>
+                        <td>Toko Wombo</td>
+                        <td>08126543</td>
+                    </tr>
+                </table>
             </div>
             <div class="page">
                 <img src="Assets/DaftarUMK/page.svg" alt="">
