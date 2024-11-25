@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DetailUMK</title>
+    <style>
+        body{
+            background-image: url(/Assets/background.svg);
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 1024px;
+            display: flex;
+            justify-content: center;
+            font-family: sans-serif;
+        }
+        h1{
+            color: #343C6A;
+            grid-area: h;
+        }
+        body main{
+            background-color: white;
+            padding: 20px;
+            width: 872px;
+            height: 851px;
+            border-radius: 25px;
+            border: 1px solid black;
+        }
+        .main{
+            display: grid;
+            justify-content: center;
+            grid-template-columns: 400px 400px;
+            grid-template-rows: 80px 150px 150px 150px 150px 150px;
+            column-gap: 50px;
+            grid-template-areas: 
+            "h h"
+            "i1 i6"
+            "i2 i7"
+            "i3 s"
+            "i4 s"
+            "i5 s";
+        }
+        .nama{
+            grid-area: i1;
+            display: flex;
+            flex-direction: column;
+        }
+        label:nth-child(2){
+            border: 1px solid black;
+            border-radius: 20px;
+            height: 70px;
+            justify-content: center;
+            text-align: left;
+            padding: 10px;
+            font-size: 18px;
+        }
+        label:nth-child(1){
+            flex: 0.5;
+        }
+        .alamat{
+            grid-area: i2;
+            display: flex;
+            flex-direction: column;
+        }
+        .tgl{
+            grid-area: i3;
+            display: flex;
+            flex-direction: column;
+        }
+        .status{
+            grid-area: i4;
+            display: flex;
+            flex-direction: column;
+        }
+        .total{
+            grid-area: i5;
+            display: flex;
+            flex-direction: column;
+        }
+        .pemilik{
+            grid-area: i6;
+            display: flex;
+            flex-direction: column;
+        }
+        .desk{
+            grid-area: i7;
+            display: flex;
+            flex-direction: column;
+        }
+        .logo{
+            grid-area: s;
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="main">
+            <h1>Detail UMK</h1>
+            <div class="nama">
+                <label for="" style="font-weight: bold;font-size: 20">Nama UMK</label>
+                <label for="">Warung Sate Bu Ngantuk</label>
+            </div>
+            <div class="alamat">
+                <label for="" style="font-weight: bold;font-size: 20">Alamat</label>
+                <label for="">Jl. Kopo Indah No. 2A, Bandung</label>
+            </div>
+            <div class="tgl">
+                <label for="" style="font-weight: bold;font-size: 20">Tanggal Bergabung</label>
+                <label for="">11 November 2023</label>
+            </div>
+            <div class="status">
+                <label for="" style="font-weight: bold;font-size: 20">Status</label>
+                <label for="">Valid</label>
+            </div>
+            <div class="total">
+                <label for="" style="font-weight: bold;font-size: 20">Total Produk</label>
+                <label for="">10</label>
+            </div>
+            <div class="pemilik">
+                <label for="" style="font-weight: bold;font-size: 20">Nama Pemilik</label>
+                <label for="">Turu Asinta</label>
+            </div>
+            <div class="desk">
+                <label for="" style="font-weight: bold;font-size: 20">Deskripsi</label>
+                <label for="">Menjual berbagai jenis sate asin dan sate pedas</label>
+            </div>
+            <div class="logo">
+                <label for="" style="font-weight: bold;font-size: 20">Logo</label>
+                <img src="Assets/bungantuk.svg" alt="">
+            </div>
+        </div>
+    </main>
+</body>
+</html>
