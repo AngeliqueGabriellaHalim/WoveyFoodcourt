@@ -17,7 +17,7 @@
         }
         h1{
             color: #343C6A;
-            grid-area: h;
+            flex: 1;
         }
         body main{
             background-color: white;
@@ -40,6 +40,11 @@
             "i3 s"
             "i4 s"
             "i5 s";
+        }
+        .header{
+            grid-area: h;
+            display: flex;
+            justify-content: center;
         }
         .nama{
             grid-area: i1;
@@ -93,12 +98,23 @@
             display: flex;
             flex-direction: column;
         }
+        .cross{
+            width: 60px;
+            height: 60px;
+        }
+        button{
+            background-color: white;
+            border: 0px;
+        }
     </style>
 </head>
 <body>
     <main>
         <div class="main">
-            <h1>Detail UMK</h1>
+            <div class="header">
+                <h1>Detail UMK</h1>
+                <button type="button" onclick="window.location.href='DaftarUMK.html'"><img src="/Assets/cross.svg" alt="" class="cross"></button>
+            </div>
             <div class="nama">
                 <label for="" style="font-weight: bold;font-size: 20">Nama UMK</label>
                 <label for="">Warung Sate Bu Ngantuk</label>
