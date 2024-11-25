@@ -97,10 +97,10 @@ insert into UMK (NoHp, Pass, NamaUMK, Deskripsi, Logo, Alamat, NamaPemilik, Stat
 values ('082121', '082121', 'Badut Gas', 'Menjual gas berkualitas', 'logoGas', 'Jln.Taman Kopo Indah 2 No. 2', 'Asep Suryadi', 'Valid', '20240203', 0, 'badutgas@gmail.com');
 
 insert into UMK (NoHp, Pass, NamaUMK, Deskripsi, Logo, Alamat, NamaPemilik, Status, Tanggal, Saldo, Email)
-values ('083131', '083131', 'Albert Sushi', 'Menjual berbagai makanan jepang', 'logoSushi', 'Jln.GegerKalong Timur No.2', 'Albert Tan', 'Valid', '20240202', 0, 'batagormaknyus@gmail.com');
+values ('083131', '083131', 'Albert Sushi', 'Menjual berbagai makanan jepang', 'logoSushi', 'Jln.GegerKalong Timur No.2', 'Albert Tan', 'Valid', '20240202', 0, 'albertsushi@gmail.com');
 
 insert into UMK (NoHp, Pass, NamaUMK, Deskripsi, Logo, Alamat, NamaPemilik, Status, Tanggal, Saldo, Email)
-values ('089922', '089922', 'Batagor maknyus', 'Menjual batagor kekinian', 'LogoBatagor', 'Jln.Soekarno-Hatta No.77', 'Susilo Adini', 'Valid', '20240203', 0, 'albertsushi@gmail.com');
+values ('089922', '089922', 'Batagor maknyus', 'Menjual batagor kekinian', 'LogoBatagor', 'Jln.Soekarno-Hatta No.77', 'Susilo Adini', 'Valid', '20240203', 0, 'batagormaknyus@gmail.com');
 
 insert into UMK (NoHp, Pass, NamaUMK, Deskripsi, Logo, Alamat, NamaPemilik, Status, Tanggal, Saldo, Email)
 values ('082134', '082134', 'Nasgor Jawir', 'menjual berbagai macam nasi goreng', 'Logo Nasgor', 'Jln. Sagitarius No.90', 'Farel Budianto', 'Valid', '20240306', 0, 'nasgorjawir@gmail.com');
