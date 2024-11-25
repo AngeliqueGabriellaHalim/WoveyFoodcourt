@@ -6,19 +6,6 @@ DROP TABLE IF EXISTS UMK;
 DROP TABLE IF EXISTS Produk;
 DROP TABLE IF EXISTS Administrator;
 DROP TABLE IF EXISTS JenisTransaksi;
-DROP TABLE IF EXISTS Kota;
-DROP TABLE IF EXISTS Provinsi;
-
-CREATE TABLE Provinsi (
-    IdProvinsi INT PRIMARY KEY,
-    NamaProvinsi VARCHAR(255)
-);
-
-CREATE TABLE Kota (
-    IdKota INT PRIMARY KEY,
-    IdProvinsi INT REFERENCES Provinsi,
-    NamaKota VARCHAR(255)
-);
 
 CREATE TABLE JenisTransaksi (
     IdJenis INT PRIMARY KEY,
@@ -26,7 +13,8 @@ CREATE TABLE JenisTransaksi (
 );
 
 CREATE TABLE Administrator (
-    NoHp VARCHAR(255) PRIMARY KEY
+    NoHp VARCHAR(255) PRIMARY KEY,
+	Pass VARCHAR(255)
 );
 
 CREATE TABLE Produk (
@@ -40,6 +28,7 @@ CREATE TABLE Produk (
 
 CREATE TABLE UMK (
     NoHp VARCHAR(255) PRIMARY KEY,
+	Pass VARCHAR(255) not NULL,
     NamaUMK VARCHAR(255),
     Deskripsi VARCHAR(255),
     Logo VARCHAR(255),
@@ -49,7 +38,7 @@ CREATE TABLE UMK (
 	Tanggal DATE,
 	Saldo Numeric,
     NamaPemilik VARCHAR(255),
-    IdKota INT REFERENCES Kota
+	Email VARCHAR(255)
 );
 
 create table Transaksi(
@@ -89,209 +78,32 @@ insert into JenisTransaksi
 values (4, 'Penarikan modal');
 
 --TABEL ADMINISTRATOR
-insert into Administrator
-values ('081');
-insert into Administrator
-values ('082');
-insert into Administrator
-values ('083');
+insert into Administrator(NoHp, Pass)
+values ('081', '081');
+insert into Administrator(NoHp, Pass)
+values ('082', '082');
+insert into Administrator(NoHp, Pass)
+values ('083', '083');
 
---TABEL PROVINSI
-INSERT INTO Provinsi VALUES 
-(1, 'Aceh'),
-(2, 'Sumatera Utara'),
-(3, 'Sumatera Barat'),
-(4, 'Riau'),
-(5, 'Jambi'),
-(6, 'Sumatera Selatan'),
-(7, 'Bengkulu'),
-(8, 'Lampung'),
-(9, 'Kepulauan Bangka Belitung'),
-(10, 'Kepulauan Riau'),
-(11, 'DKI Jakarta'),
-(12, 'Jawa Barat'),
-(13, 'Jawa Tengah'),
-(14, 'DI Yogyakarta'),
-(15, 'Jawa Timur'),
-(16, 'Banten'),
-(17, 'Bali'),
-(18, 'Nusa Tenggara Barat'),
-(19, 'Nusa Tenggara Timur'),
-(20, 'Kalimantan Barat'),
-(21, 'Kalimantan Tengah'),
-(22, 'Kalimantan Selatan'),
-(23, 'Kalimantan Timur'),
-(24, 'Kalimantan Utara'),
-(25, 'Sulawesi Utara'),
-(26, 'Sulawesi Tengah'),
-(27, 'Sulawesi Selatan'),
-(28, 'Sulawesi Tenggara'),
-(29, 'Gorontalo'),
-(30, 'Sulawesi Barat'),
-(31, 'Maluku'),
-(32, 'Maluku Utara'),
-(33, 'Papua'),
-(34, 'Papua Barat'),
-(35, 'Papua Tengah'),
-(36, 'Papua Pegunungan');
-
---TABEL KOTA
-INSERT INTO Kota VALUES 
--- Provinsi Aceh
-(1, 1, 'Banda Aceh'),
-(2, 1, 'Langsa'),
-(3, 1, 'Lhokseumawe'),
-(4, 1, 'Sabang'),
-(5, 1, 'Subulussalam'),
--- Provinsi Sumatera Utara
-(6, 2, 'Medan'),
-(7, 2, 'Binjai'),
-(8, 2, 'Tebing Tinggi'),
-(9, 2, 'Pematang Siantar'),
-(10, 2, 'Tanjungbalai'),
-(11, 2, 'Sibolga'),
-(12, 2, 'Padang Sidempuan'),
-(13, 2, 'Gunungsitoli'),
--- Provinsi Sumatera Barat
-(14, 3, 'Padang'),
-(15, 3, 'Bukittinggi'),
-(16, 3, 'Padang Panjang'),
-(17, 3, 'Pariaman'),
-(18, 3, 'Payakumbuh'),
-(19, 3, 'Sawahlunto'),
-(20, 3, 'Solok'),
--- Provinsi Riau
-(21, 4, 'Pekanbaru'),
-(22, 4, 'Dumai'),
--- Provinsi Jambi
-(23, 5, 'Jambi'),
-(24, 5, 'Sungai Penuh'),
--- Provinsi Sumatera Selatan
-(25, 6, 'Palembang'),
-(26, 6, 'Pagar Alam'),
-(27, 6, 'Lubuklinggau'),
-(28, 6, 'Prabumulih'),
--- Provinsi Bengkulu
-(29, 7, 'Bengkulu'),
--- Provinsi Lampung
-(30, 8, 'Bandar Lampung'),
-(31, 8, 'Metro'),
--- Provinsi Kepulauan Bangka Belitung
-(32, 9, 'Pangkal Pinang'),
--- Provinsi Kepulauan Riau
-(33, 10, 'Tanjung Pinang'),
-(34, 10, 'Batam'),
--- Provinsi DKI Jakarta
-(35, 11, 'Jakarta Pusat'),
-(36, 11, 'Jakarta Utara'),
-(37, 11, 'Jakarta Barat'),
-(38, 11, 'Jakarta Selatan'),
-(39, 11, 'Jakarta Timur'),
--- Provinsi Jawa Barat
-(40, 12, 'Bandung'),
-(41, 12, 'Bogor'),
-(42, 12, 'Cimahi'),
-(43, 12, 'Depok'),
-(44, 12, 'Sukabumi'),
-(45, 12, 'Tasikmalaya'),
-(46, 12, 'Banjar'),
--- Provinsi Jawa Tengah
-(47, 13, 'Semarang'),
-(48, 13, 'Surakarta (Solo)'),
-(49, 13, 'Salatiga'),
-(50, 13, 'Pekalongan'),
-(51, 13, 'Magelang'),
-(52, 13, 'Tegal'),
--- Provinsi DI Yogyakarta
-(53, 14, 'Yogyakarta'),
--- Provinsi Jawa Timur
-(54, 15, 'Surabaya'),
-(55, 15, 'Malang'),
-(56, 15, 'Kediri'),
-(57, 15, 'Madiun'),
-(58, 15, 'Mojokerto'),
-(59, 15, 'Blitar'),
-(60, 15, 'Pasuruan'),
-(61, 15, 'Probolinggo'),
-(62, 15, 'Batu'),
--- Provinsi Banten
-(63, 16, 'Serang'),
-(64, 16, 'Cilegon'),
-(65, 16, 'Tangerang Selatan'),
-(66, 16, 'Tangerang'),
--- Provinsi Bali
-(67, 17, 'Denpasar'),
--- Provinsi Nusa Tenggara Barat
-(68, 18, 'Mataram'),
-(69, 18, 'Bima'),
--- Provinsi Nusa Tenggara Timur
-(70, 19, 'Kupang'),
--- Provinsi Kalimantan Barat
-(71, 20, 'Pontianak'),
-(72, 20, 'Singkawang'),
--- Provinsi Kalimantan Tengah
-(73, 21, 'Palangka Raya'),
--- Provinsi Kalimantan Selatan
-(74, 22, 'Banjarmasin'),
-(75, 22, 'Banjarbaru'),
--- Provinsi Kalimantan Timur
-(76, 23, 'Samarinda'),
-(77, 23, 'Balikpapan'),
-(78, 23, 'Bontang'),
--- Provinsi Kalimantan Utara
-(79, 24, 'Tarakan'),
--- Provinsi Sulawesi Utara
-(80, 25, 'Manado'),
-(81, 25, 'Bitung'),
-(82, 25, 'Tomohon'),
-(83, 25, 'Kotamobagu'),
--- Provinsi Sulawesi Tengah
-(84, 26, 'Palu'),
--- Provinsi Sulawesi Selatan
-(85, 27, 'Makassar'),
-(86, 27, 'Parepare'),
-(87, 27, 'Palopo'),
--- Provinsi Sulawesi Tenggara
-(88, 28, 'Kendari'),
-(89, 28, 'Baubau'),
--- Provinsi Gorontalo
-(90, 29, 'Gorontalo'),
--- Provinsi Sulawesi Barat
-(91, 30, 'Mamuju'),
--- Provinsi Maluku
-(92, 31, 'Ambon'),
-(93, 31, 'Tual'),
--- Provinsi Maluku Utara
-(94, 32, 'Ternate'),
-(95, 32, 'Tidore Kepulauan'),
--- Provinsi Papua
-(96, 33, 'Jayapura'),
--- Provinsi Papua Barat
-(97, 34, 'Manokwari'),
-(98, 34, 'Sorong'),
--- Provinsi Papua Tengah
-(99, 35, 'Nabire'),
--- Provinsi Papua Pegunungan
-(100, 36, 'Wamena');
 
 --TABEL UMK
-insert into UMK (NoHp, NamaUMK, Deskripsi, Logo, Alamat, NamaPemilik, IdKota, Status, Tanggal, Saldo)
-values ('081234', 'Kedai Bermutu', 'Menjual bahan pokok yang berkualitas dan termurah', 'logoKedaiBermutu', 'Jln. Hang Lekir XI No. 10', 'Budi Irwanto', 2, 'Valid', '20240102', 0);
+insert into UMK (NoHp, Pass, NamaUMK, Deskripsi, Logo, Alamat, NamaPemilik, Status, Tanggal, Saldo, Email)
+values ('081234', '081234', 'Kedai Bermutu', 'Menjual bahan pokok yang berkualitas dan termurah', 'logoKedaiBermutu', 'Jln. Hang Lekir XI No. 10', 'Budi Irwanto', 'Valid', '20240102', 0, 'kedaibermutu@gmail.com');
 
-insert into UMK (NoHp, NamaUMK, Deskripsi, Logo, Alamat, NamaPemilik, IdKota, Status, Tanggal, Saldo)
-values ('082222', 'Roti Yes', 'Menjual berbagai macam roti', 'logoRotiYes', 'Jln. Trunojoyo No. 8', 'Yestianti', 1, 'Valid', '20240110', 0);
+insert into UMK (NoHp, Pass, NamaUMK, Deskripsi, Logo, Alamat, NamaPemilik, Status, Tanggal, Saldo, Email)
+values ('082222', '082222',  'Roti Yes', 'Menjual berbagai macam roti', 'logoRotiYes', 'Jln. Trunojoyo No. 8', 'Yestianti', 'Valid', '20240110', 0, 'rotiyes@gmail.com');
 
-insert into UMK (NoHp, NamaUMK, Deskripsi, Logo, Alamat, NamaPemilik, IdKota, Status, Tanggal, Saldo)
-values ('082121', 'Badut Gas', 'Menjual gas berkualitas', 'logoGas', 'Jln.Taman Kopo Indah 2 No. 2', 'Albert Tan', 2, 'Valid', '20240203', 0);
+insert into UMK (NoHp, Pass, NamaUMK, Deskripsi, Logo, Alamat, NamaPemilik, Status, Tanggal, Saldo, Email)
+values ('082121', '082121', 'Badut Gas', 'Menjual gas berkualitas', 'logoGas', 'Jln.Taman Kopo Indah 2 No. 2', 'Asep Suryadi', 'Valid', '20240203', 0, 'badutgas@gmail.com');
 
-insert into UMK (NoHp, NamaUMK, Deskripsi, Logo, Alamat, NamaPemilik, IdKota, Status, Tanggal, Saldo)
-values ('083131', 'Albert Sushi', 'Menjual berbagai makanan jepang', 'logoSushi', 'Jln.GegerKalong Timur No.2', 'Asep Suryadi', 1, 'Valid', '20240202', 0);
+insert into UMK (NoHp, Pass, NamaUMK, Deskripsi, Logo, Alamat, NamaPemilik, Status, Tanggal, Saldo, Email)
+values ('083131', '083131', 'Albert Sushi', 'Menjual berbagai makanan jepang', 'logoSushi', 'Jln.GegerKalong Timur No.2', 'Albert Tan', 'Valid', '20240202', 0, 'batagormaknyus@gmail.com');
 
-insert into UMK (NoHp, NamaUMK, Deskripsi, Logo, Alamat, NamaPemilik, IdKota, Status, Tanggal, Saldo)
-values ('089922', 'Batagor maknyus', 'Menjual batagor kekinian', 'LogoBatagor', 'Jln.Soekarno-Hatta No.77', 'Susilo Adini', 3, 'Valid', '20240203', 0);
+insert into UMK (NoHp, Pass, NamaUMK, Deskripsi, Logo, Alamat, NamaPemilik, Status, Tanggal, Saldo, Email)
+values ('089922', '089922', 'Batagor maknyus', 'Menjual batagor kekinian', 'LogoBatagor', 'Jln.Soekarno-Hatta No.77', 'Susilo Adini', 'Valid', '20240203', 0, 'albertsushi@gmail.com');
 
-insert into UMK (NoHp, NamaUMK, Deskripsi, Logo, Alamat, NamaPemilik, IdKota, Status, Tanggal, Saldo)
-values ('082134', 'Nasgor Jawir', 'menjual berbagai macam nasi goreng', 'Logo Nasgor', 'Jln. Sagitarius No.90', 'Farel Budianto', 3, 'Valid', '20240306', 0);
+insert into UMK (NoHp, Pass, NamaUMK, Deskripsi, Logo, Alamat, NamaPemilik, Status, Tanggal, Saldo, Email)
+values ('082134', '082134', 'Nasgor Jawir', 'menjual berbagai macam nasi goreng', 'Logo Nasgor', 'Jln. Sagitarius No.90', 'Farel Budianto', 'Valid', '20240306', 0, 'nasgorjawir@gmail.com');
 
 --TABEL PENDAFTARAN
 insert into Pendaftaran (Status, Tanggal, NoHpAdmin)
