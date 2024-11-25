@@ -6,7 +6,7 @@
     <title>DaftarUMK</title>
     <style>
         body{
-            width: 1440px;
+            width: 100%;
             height: 1024px;
             font-family: sans-serif;
         }
@@ -59,37 +59,30 @@
         .groupmain{
             justify-content: center;
         }
-        .groupmain label{
-            display: flex;
-            padding: 20px;
-            padding-right: 65px;
+        table tr td button[name="Detail"]{
             font-size: 16px;
-        }
-        .groupmain label:nth-child(1){
-            color: #343C6A;
-            font-size: 17px;
-        }
-        .groupmain label[value="detail"]{
-            padding-bottom: 0px;
-            padding-top: 1px;
-        }
-        .groupmainverif label[value="verif"]{
-            padding-bottom: 0px;
-            padding-top: 1px;
-            padding-left: 30px;
-            color: #343C6A; 
-        }
-        .groupmainverif button{
-            display: flex;
-            font-size: 16px;
-            margin-left: 20px;
-            margin-top: 34px;
             width: 90px;
             height: 25px;
             border-radius: 15px;
             justify-content: center;
             background-color: #0058EA;
             color: white;
+            cursor: pointer;
+        }
+        table tr td button[name="Detail"]:hover{
+            background-color:rgba(0, 88, 234, 0.8);
+        }
+        table tr td button{
+            font-size: 16px;
+            width: 90px;
+            height: 25px;
+            border-radius: 15px;
+            justify-content: center;
+            background-color: white;
+            cursor: pointer;
+        }
+        table tr td button:hover{
+            background-color:rgba(0, 88, 234, 0.2);
         }
         .groupmain button{
             display: flex;
@@ -159,6 +152,13 @@
             padding-left:65px;
             color: #343C6A;
         }
+        table{
+            border-spacing: 40px 30px;
+        }
+        table tr th, table tr td{
+            text-align: center;
+            min-width: 120px;
+        }
     </style>
 </head>
 <body>
@@ -195,73 +195,64 @@
             </button>
         </div>
         <div class="Header">
-            <label for="">Daftar UMK</label>
+            <label for="">Verifikasi</label>
         </div>
         <div class="Main">
             <div class="head">
-                <h1>Daftar UMK</h2>
+                <h1>Verifikasi Pendaftaran UMK</h2>
             </div>
             <div class="innerborder">
-                <div class="groupmain">
-                    <label for="">No.HP</label>
-                    <label for="">081234567890</label>
-                    <label for="">082812687268</label>
-                    <label for="">082762637628</label>
-                    <label for="">081283688253</label>
-                    <label for="">089823651839</label>
-                    <label for="">086325283497</label>
-                    <label for="">087837837868</label>
-                </div>
-                <div class="groupmain">
-                    <label for="">Nama UMK</label>
-                    <label for="">081234567890</label>
-                    <label for="">082812687268</label>
-                    <label for="">082762637628</label>
-                    <label for="">081283688253</label>
-                    <label for="">089823651839</label>
-                    <label for="">086325283497</label>
-                    <label for="">087837837868</label>
-                </div>
-                <div class="groupmain">
-                    <label for="">Nama Pemilik</label>
-                    <label for="">081234567890</label>
-                    <label for="">082812687268</label>
-                    <label for="">082762637628</label>
-                    <label for="">081283688253</label>
-                    <label for="">089823651839</label>
-                    <label for="">086325283497</label>
-                    <label for="">087837837868</label>
-                </div>
-                <div class="groupmain">
-                    <label for="">Tanggal</label>
-                    <label for="">081234567890</label>
-                    <label for="">082812687268</label>
-                    <label for="">082762637628</label>
-                    <label for="">081283688253</label>
-                    <label for="">089823651839</label>
-                    <label for="">086325283497</label>
-                    <label for="">087837837868</label>
-                </div>
-                <div class="groupmain">
-                    <label for="" value="detail">Detail</label>
-                    <button>Detail</button>
-                    <button>Detail</button>
-                    <button>Detail</button>
-                    <button>Detail</button>
-                    <button>Detail</button>
-                    <button>Detail</button>
-                    <button>Detail</button>
-                </div>
-                <div class="groupmainverif">
-                    <label for="" value="verif">Verifikasi</label>
-                    <button>Verifikasi</button>
-                    <button>Verifikasi</button>
-                    <button>Verifikasi</button>
-                    <button>Verifikasi</button>
-                    <button>Verifikasi</button>
-                    <button>Verifikasi</button>
-                    <button>Verifikasi</button>
-                </div>
+                <table>
+                    <tr style="color: #343C6A;">
+                        <th>No.HP</th>
+                        <th>Nama UMK</th>
+                        <th>Pemilik UMK</th>
+                        <th>Tanggal Pengajuan</th>
+                        <th>Detail UMK</th>
+                        <th>Verifikasi</th>
+                    </tr>
+                    <tr>
+                        <td>08234567890</td>
+                        <td>Toko Indah</td>
+                        <td>Dian Pratama</td>
+                        <td>2-Mar-2024</td>
+                        <td><button type="button">Detail</button></td>
+                        <td><button type="button" name="Detail">Verifikasi</button></td>
+                    </tr>
+                    <tr>
+                        <td>08234567890</td>
+                        <td>Toko Indah</td>
+                        <td>Dian Pratama</td>
+                        <td>2-Mar-2024</td>
+                        <td><button type="button">Detail</button></td>
+                        <td><button type="button" name="Detail">Verifikasi</button></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>08234567890</td>
+                        <td>Toko Indah</td>
+                        <td>Dian Pratama</td>
+                        <td>2-Mar-2024</td>
+                        <td><button type="button">Detail</button></td>
+                        <td><button type="button" name="Detail">Verifikasi</button></td>
+                    </tr>
+                    <tr> 
+                        <td>08234567890</td>
+                        <td>Toko Indah</td>
+                        <td>Dian Pratama</td>
+                        <td>2-Mar-2024</td>
+                        <td><button type="button">Detail</button></td>
+                        <td><button type="button" name="Detail">Verifikasi</button></td>
+                    </tr>
+                    <tr>
+                        <td>08234567890</td>
+                        <td>Toko Indah</td>
+                        <td>Dian Pratama</td>
+                        <td>2-Mar-2024</td>
+                        <td><button type="button" >Detail</button></td>
+                        <td><button type="button" name="Detail">Verifikasi</button></td>
+                    </tr>
+                </table>
             </div>
             <div class="page">
                 <img src="Assets/DaftarUMK/page.svg" alt="">
