@@ -1,112 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./vars.css">
-  <link rel="stylesheet" href="./style.css">
-  
-  
-  <style>
-   a,
-   button,
-   input,
-   select,
-   h1,
-   h2,
-   h3,
-   h4,
-   h5,
-   * {
-       box-sizing: border-box;
-       margin: 0;
-       padding: 0;
-       border: none;
-       text-decoration: none;
-       background: none;
-   
-       -webkit-font-smoothing: antialiased;
-   }
-   
-   menu, ol, ul {
-       list-style-type: none;
-       margin: 0;
-       padding: 0;
-   }
-   </style>
-  <title>Document</title>
-</head>
-<body>
-  <div class="produk-umk-html">
-    <img class="background-navigation" src="background-navigation0.svg" />
-    <div class="transaksi">
-      <div class="transaksi2">Transaksi</div>
-      <img class="icon-transaksi" src="icon-transaksi0.svg" />
-    </div>
-    <div class="dashboard">
-      <div class="dashboard2">Dashboard</div>
-      <img class="icon-dashboard" src="icon-dashboard0.svg" />
-    </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="./vars.css" /> -->
+    <link rel="stylesheet" href="./updateStyle.css" />
+
+    <!-- <style>
+      a,
+      button,
+      input,
+      select,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        border: none;
+        text-decoration: none;
+        background: none;
+
+        -webkit-font-smoothing: antialiased;
+      }
+
+      menu,
+      ol,
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+    </style> -->
+    <title>Wovey Foodcourt</title>
+  </head>
+  <body>
     <div class="logo">
-      <div class="wovey">Wovey</div>
-      <div class="foodcourt">Foodcourt .</div>
+      <p class="wovey">Wovey<br />Foodcourt .</p>
     </div>
-    <div class="keuangan">
-      <div class="nav-keuangan">Keuangan</div>
-      <img class="icon-keuangan" src="icon-keuangan0.svg" />
+    <div class="header">
+      <p class="produk">Produk</p>
+      <img class="profile" src="assets/profile0.svg" />
     </div>
-    <div class="penjualan">
-      <img class="icon-penjualan" src="icon-penjualan0.svg" />
-      <div class="nav-penjualan">Penjualan</div>
-    </div>
-    <img class="divider" src="divider0.svg" />
-    <div class="log-out">
-      <div class="nav-log-out">Log Out</div>
-      <img class="icon-log-out" src="icon-log-out0.svg" />
-    </div>
-    <div class="bantuan">
-      <img class="icon-bantuan" src="icon-bantuan0.svg" />
-      <div class="nav-bantuan">Bantuan</div>
-    </div>
-    <div class="produk-highlighted">
-      <div class="highlighted-bar"></div>
-      <img class="icon-produk" src="icon-produk0.svg" />
-      <div class="nav-produk">Produk</div>
-    </div>
-    <div class="daftar-produk">Daftar Produk</div>
-    <div class="cari-produk-add">
-      <div class="cari-produk">
-        <div class="background-cari-produk"></div>
-        <div class="magnifying-glass-1">
-          <img class="group" src="group0.svg" />
+    <div class="main-content">
+      <div class="sub-header">
+        <p class="daftar-produk">Daftar Produk</p>
+        <div class="cari-add-produk">
+          <div class="cari-produk">
+            <img class="search-button" src="assets/group0.svg" />
+            <input type="text" placeholder="Cari Produk" />
+          </div>
+          <button type="button" class="blue-button add-produk">
+            (+) Tambah Produk
+          </button>
         </div>
-        <div class="cari-produk2">Cari Produk</div>
       </div>
-      <div class="add-product">
-        <div class="text-background-add">
-          <div class="background-add"></div>
-          <div class="tambah-produk">Tambah Produk</div>
-        </div>
-        <img class="button-plus" src="button-plus0.svg" />
+
+      <div class="sub-sub-header">
+        <p class="semua-produk2">Semua Produk</p>
+      </div>
+
+      <div class="list-produk">
+        <table>
+          <tr>
+            <th>ID</th>
+            <th>Foto Produk</th>
+            <th>Nama Produk</th>
+            <th>Jumlah Stok</th>
+            <th>Harga</th>
+            <th>Edit</th>
+          </tr>
+          <tr>
+            <td>R01</td>
+            <td>
+              <img
+                class="foto-produk"
+                src="assets/20200813094553Pie&Pastry-08.jpg"
+              />
+            </td>
+            <td>Milk Cornet</td>
+            <td>1200</td>
+            <td>Rp7.000</td>
+            <td>
+              <button type="button" class="edit-button">Edit</button>
+            </td>
+          </tr>
+          <tr>
+            <td>R02</td>
+            <td>
+              <img
+                class="foto-produk"
+                src="assets/20200813113354Pan Bread-02.jpg"
+              />
+            </td>
+            <td>Roti tawar</td>
+            <td>650</td>
+            <td>Rp20.000</td>
+            <td>
+              <button type="button" class="edit-button">Edit</button>
+            </td>
+          </tr>
+          <tr>
+            <td>R03</td>
+            <td>
+              <img
+                class="foto-produk"
+                src="assets/20200813094652Pie&Pastry-09.jpg"
+              />
+            </td>
+            <td>Egg Tart</td>
+            <td>455</td>
+            <td>Rp10.000</td>
+            <td>
+              <button type="button" class="edit-button">Edit</button>
+            </td>
+          </tr>
+          <tr>
+            <td>R04</td>
+            <td>
+              <img
+                class="foto-produk"
+                src="assets/20240618160418O2O_Soft Milk Bun Original.jpg"
+              />
+            </td>
+            <td>Milk Bun</td>
+            <td>100</td>
+            <td>Rp20.000</td>
+            <td>
+              <button type="button" class="edit-button">Edit</button>
+            </td>
+          </tr>
+          <tr>
+            <td>R05</td>
+            <td>
+              <img
+                class="foto-produk"
+                src="assets/20200807125834Savory-04.jpg"
+              />
+            </td>
+            <td>Roti Sosis</td>
+            <td>735</td>
+            <td>Rp9.000</td>
+            <td>
+              <button type="button" class="edit-button">Edit</button>
+            </td>
+          </tr>
+        </table>
       </div>
     </div>
-    <div class="semua-produk2">Semua Produk</div>
-    <div class="divider-subtitle"></div>
-    <div class="highlighted-semua-produk"></div>
-    <div class="next-arrow">
-      <div class="selanjutnya">Selanjutnya</div>
-      <img class="arrow" src="arrow0.svg" />
+
+    <div class="navigation">
+      <div class="dashboard">
+        <img class="icon-dashboard" src="assets/icon-dashboard0.svg" />
+        <p class="nav-transaki">Dashboard</p>
+      </div>
+
+      <div class="nav-produk">
+        <img src="assets/icon-produk0.svg" />
+        <p>Produk</p>
+      </div>
+
+      <div class="transaksi">
+        <img class="icon-transaksi" src="assets/icon-transaksi0.svg" />
+        <p class="nav-transaksi">Transaksi</p>
+      </div>
+
+      <div class="keuangan">
+        <img class="icon-keuangan" src="assets/icon-keuangan0.svg" />
+        <p class="nav-keuangan">Keuangan</p>
+      </div>
+
+      <div class="penjualan">
+        <img class="icon-penjualan" src="assets/icon-penjualan0.svg" />
+        <p class="nav-penjualan">Penjualan</p>
+      </div>
+
+      <div class="nav-divider">
+        <img class="divider" src="assets/divider0.svg" />
+      </div>
+
+      <div class="log-out">
+        <img class="icon-log-out" src="assets/icon-log-out0.svg" />
+        <p class="nav-log-out">Log Out</p>
+      </div>
+
+      <div class="bantuan">
+        <img class="icon-bantuan" src="assets/icon-bantuan0.svg" />
+        <p class="nav-bantuan">Bantuan</p>
+      </div>
     </div>
-    <div class="_3">3</div>
-    <div class="_4">4</div>
-    <div class="highlighted-page"></div>
-    <div class="_1">1</div>
-    <div class="_2">2</div>
-    <div class="background-header"></div>
-    <div class="produk">Produk</div>
-    <img class="profile" src="profile0.svg" />
-  </div>
-  
-</body>
+
+    <div class="page-navigation-container">
+      <div class="page-navigation">
+        <p class="_1">1</p>
+        <p class="_2">2</p>
+        <p class="_3">3</p>
+        <p class="_4">4</p>
+        <p class="selanjutnya">Selanjutnya</p>
+        <img class="arrow" src="assets/arrow0.svg" />
+      </div>
+    </div>
+  </body>
 </html>
