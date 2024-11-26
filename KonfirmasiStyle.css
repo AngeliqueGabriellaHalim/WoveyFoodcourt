@@ -5,12 +5,12 @@ body{
     background-size: 100%;
     display: flex;
     justify-content: center;
-    margin-top: 250px;
+    margin-top: 150px;
     font-family: sans-serif;
 }
 main{
     background-color: white;
-    width: 673px;
+    width: 45%;
     height: 491px;
     border: 1px solid black;
     border-radius: 25px;
@@ -19,7 +19,7 @@ main{
 }
 .attribute{
     display: grid;
-    grid-template-columns: 650px;
+    grid-template-columns: 100%;
     grid-template-rows: 100px 140px 60px 20px 50px 50px;
     grid-template-areas: 
     "h"
@@ -42,7 +42,7 @@ main{
     text-align: center;
 }
 .main img{
-    width: 140px;
+    width: 100%;
     height: 140px;
 }
 .item1{
@@ -72,16 +72,16 @@ main{
     color: white;
     border: 0px;
     border-radius: 15px;
-    width: 150px;
-    height: 54px;
+    width: 30%;
+    height: 100%;
 }
 .button button:nth-child(2){
     background-color: #09B96D;
     color: white;
     border: 0px;
     border-radius: 15px;
-    width: 150px;
-    height: 54px;
+    width: 30%;
+    height: 100%;
 }
 .button button:nth-child(2):hover{
     background-color: rgba(9, 185, 109, 0.5);
