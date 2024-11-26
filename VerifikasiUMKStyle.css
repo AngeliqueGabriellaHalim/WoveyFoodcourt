@@ -5,9 +5,8 @@ body{
 }
 main{
     display: grid;
-    grid-template-columns: 245px 1185px;
+    grid-template-columns: 15% 85%;
     grid-template-rows: 95px 919px;
-    column-gap: 10px;
     row-gap: 10px;
     grid-template-areas: 
     "s h"
@@ -17,8 +16,9 @@ main{
     grid-area: s;
     display: flex;
     flex-direction: column;
+    border-right: 1px solid grey;
 }
-.groupside{
+.groupside, .groupsidemain{
     display: flex;
     align-items: center;
     padding: 20px;
@@ -27,7 +27,6 @@ main{
     background-color: white;
     border: 0px;
     cursor: pointer;
-    width: 250px;
     height: 100px;
 }
 .judul{
@@ -92,6 +91,7 @@ table tr td button:hover{
     grid-area: h;
     display: flex;
     justify-content: center;
+    border-bottom: 1px solid grey;
 }
 .Header label{
     flex: 1;
@@ -135,6 +135,9 @@ table tr td button:hover{
     flex: 0.9;
     font-size: 18px;
     color: #343C6A;
+}
+.groupside button, .groupsidemain button{
+    width: 230px;
 }
 .page{
     display: flex;
