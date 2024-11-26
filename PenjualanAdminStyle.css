@@ -1,0 +1,117 @@
+body{
+    width: 100%;
+    height: 1024px;
+    font-family: sans-serif;
+    margin: 0px;
+}
+main{
+    display: grid;
+    grid-template-columns: 15% 85%;
+    grid-template-rows: 95px 919px;
+    row-gap: 10px;
+    grid-template-areas: 
+    "s h"
+    "s m";
+}
+.side{
+    grid-area: s;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid grey;
+    width: 100%;
+}
+.groupside{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    color: #B1B1B1;
+    text-align: center;
+    background-color: white;
+    border: 0px;
+    cursor: pointer;
+    width: 80%;
+    height: 100px;
+}
+.judul{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    font-size: 28px;
+    font-weight: bold;  
+    color: #343C6A;
+}
+.Main{
+    grid-area: m;
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    margin-left: 1%;
+}
+.Main button{
+    flex: 1;
+    width: 100%;
+    height: 354px;
+    background-color: white;
+    border: 0px;
+    cursor: pointer;
+}
+.Main button img{
+    width: 100%;
+    height: 354px;
+    justify-content: center;
+    align-items: center;
+}
+.Header{
+    grid-area: h;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid grey;
+}
+.Header label{
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: #343C6A;
+    font-weight: bold;
+    font-size: 28px;
+}
+.Header img{
+    width: 60%;
+    height: 60%;
+}
+.groupside img{
+    width: 20%;
+    height: 20px;
+}
+.groupside button, .groupsidemain button{
+    width: 100%;
+}
+.groupside label[value="daftarumk"]{
+    color: #343C6A; 
+}
+.groupside label{
+    flex:1;
+    font-size: 18px;
+    width: 100%;
+}
+.groupsidemain{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    color: #B1B1B1;
+    text-align: center;
+    background-color: #E3E4FF;
+    border: 0px;
+    cursor: pointer;
+    width: 100%;
+}
+.groupsidemain img{
+    width: 20%;
+    height: 20px;
+}
+.groupsidemain label{
+    flex: 0.9;
+    font-size: 18px;
+    color: #343C6A;
+}

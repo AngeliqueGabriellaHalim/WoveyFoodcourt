@@ -12,9 +12,8 @@
         }
         main{
             display: grid;
-            grid-template-columns: 245px 1185px;
+            grid-template-columns: 15% 85%;
             grid-template-rows: 95px 919px;
-            column-gap: 10px;
             row-gap: 10px;
             grid-template-areas: 
             "s h"
@@ -24,6 +23,7 @@
             grid-area: s;
             display: flex;
             flex-direction: column;
+            border-right: 1px solid grey;
         }
         .groupside{
             display: flex;
@@ -34,7 +34,7 @@
             background-color: white;
             border: 0px;
             cursor: pointer;
-            width: 250px;
+            width: 100%;
             height: 100px;
         }
         .judul{
@@ -60,6 +60,7 @@
             grid-area: h;
             display: flex;
             justify-content: center;
+            border-bottom: 1px solid grey;
         }
         .Header label{
             flex: 1;
@@ -71,11 +72,11 @@
             font-size: 28px;
         }
         .Header img{
-            width: 60px;
+            width: 60%;
             height: 60px;
         }
         .groupside img{
-            width: 20px;
+            width: 20%;
             height: 20px;
         }
         .groupside label[value="daftarumk"]{
@@ -119,6 +120,9 @@
         .head{
             padding-left:65px;
             color: #343C6A;
+        }
+        .head h1{
+            padding-bottom:30px;
         }
         .head input{
             width: 360px;
@@ -177,8 +181,9 @@
             <label for=""><a href="PenjualanAdmin.html" style="color:#343C6A">Penjualan</a> > Produk</label>
         </div>
         <div class="Main">
+
             <div class="head">
-                <h1>Daftar Produk Terlaris <img src="/Assets/tandatanya.svg" alt=""></h1>
+                <h1>Daftar Produk Terlaris <img src="/Assets/tandatanya.svg" alt="" id="tandatanya"><img src="/Assets/popup1.svg" alt="" id="popup" style="visibility: hidden;"></h1>
                 <h2>Banyak Produk</h2>
                 <input type="text" placeholder="Masukkan angka (1-1000)"> <button type="button">OK</button>
             </div>
@@ -228,5 +233,16 @@
             </div>
         </div>
     </main>
+    <script>
+        const select = document.getElementById("popup");
+        const hover = document.getElementById("tandatanya");
+        hover.addEventListener("mouseenter", () => {
+            select.style.visibility = "visible";
+        });
+        hover.addEventListener("mouseleave", () => {
+            select.style.visibility = "hidden";
+        });
+    </script>
+    
 </body>
 </html>
