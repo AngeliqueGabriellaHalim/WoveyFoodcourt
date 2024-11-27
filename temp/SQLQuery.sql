@@ -88,22 +88,22 @@ values ('083', '083');
 
 --TABEL UMK
 insert into UMK (NoHp, Pass, NamaUMK, Deskripsi, Logo, Alamat, NamaPemilik, Status, Tanggal, Saldo, Email)
-values ('081234', '081234', 'Kedai Bermutu', 'Menjual bahan pokok yang berkualitas dan termurah', 'logoKedaiBermutu', 'Jln. Hang Lekir XI No. 10', 'Budi Irwanto', 'Valid', '20240102', 0, 'kedaibermutu@gmail.com');
+values ('081234', '081234', 'Kedai Foodshop', 'Menjual lauk yang berkualitas dan termurah', '/Assets/logoUMK/KedaiFoodshop.jpg', 'Jln. Hang Lekir XI No. 10', 'Budi Irwanto', 'Valid', '20240102', 0, 'kedaifoodshop@gmail.com');
 
 insert into UMK (NoHp, Pass, NamaUMK, Deskripsi, Logo, Alamat, NamaPemilik, Status, Tanggal, Saldo, Email)
-values ('082222', '082222',  'Roti Yes', 'Menjual berbagai macam roti', 'logoRotiYes', 'Jln. Trunojoyo No. 8', 'Yestianti', 'Valid', '20240110', 0, 'rotiyes@gmail.com');
+values ('082222', '082222',  'Roti Yes', 'Menjual berbagai macam roti', '/Assets/logoUMK/RotiYes.png', 'Jln. Trunojoyo No. 8', 'Yestianti', 'Valid', '20240110', 0, 'rotiyes@gmail.com');
 
 insert into UMK (NoHp, Pass, NamaUMK, Deskripsi, Logo, Alamat, NamaPemilik, Status, Tanggal, Saldo, Email)
-values ('082121', '082121', 'Badut Gas', 'Menjual gas berkualitas', 'logoGas', 'Jln.Taman Kopo Indah 2 No. 2', 'Asep Suryadi', 'Valid', '20240203', 0, 'badutgas@gmail.com');
+values ('082121', '082121', 'Fresh Drinkie', 'Menjual berbagai minuman segar', '/Assets/logoUMK/freshDrinkie.jpg', 'Jln.Taman Kopo Indah 2 No. 2', 'Asep Suryadi', 'Valid', '20240203', 0, 'freshdrinkie@gmail.com');
 
 insert into UMK (NoHp, Pass, NamaUMK, Deskripsi, Logo, Alamat, NamaPemilik, Status, Tanggal, Saldo, Email)
-values ('083131', '083131', 'Albert Sushi', 'Menjual berbagai makanan jepang', 'logoSushi', 'Jln.GegerKalong Timur No.2', 'Albert Tan', 'Valid', '20240202', 0, 'albertsushi@gmail.com');
+values ('083131', '083131', 'Albert Sushi', 'Menjual berbagai makanan jepang', '/Assets/logoUMK/albertSushi.jpg', 'Jln.GegerKalong Timur No.2', 'Albert Tan', 'Valid', '20240202', 0, 'albertsushi@gmail.com');
 
 insert into UMK (NoHp, Pass, NamaUMK, Deskripsi, Logo, Alamat, NamaPemilik, Status, Tanggal, Saldo, Email)
-values ('089922', '089922', 'Batagor maknyus', 'Menjual batagor kekinian', 'LogoBatagor', 'Jln.Soekarno-Hatta No.77', 'Susilo Adini', 'Valid', '20240203', 0, 'batagormaknyus@gmail.com');
+values ('089922', '089922', 'Batagor maknyus', 'Menjual batagor kekinian', '/Assets/logoUMK/batagorMaknyus.jpg', 'Jln.Soekarno-Hatta No.77', 'Susilo Adini', 'Valid', '20240203', 0, 'batagormaknyus@gmail.com');
 
 insert into UMK (NoHp, Pass, NamaUMK, Deskripsi, Logo, Alamat, NamaPemilik, Status, Tanggal, Saldo, Email)
-values ('082134', '082134', 'Nasgor Jawir', 'menjual berbagai macam nasi goreng', 'Logo Nasgor', 'Jln. Sagitarius No.90', 'Farel Budianto', 'Valid', '20240306', 0, 'nasgorjawir@gmail.com');
+values ('082134', '082134', 'Nasgor Jawir', 'menjual berbagai macam nasi goreng', '/Assets/logoUMK/nasgorJawir.jpg', 'Jln. Sagitarius No.90', 'Farel Budianto', 'Valid', '20240306', 0, 'nasgorjawir@gmail.com');
 
 --TABEL PENDAFTARAN
 insert into Pendaftaran (Status, Tanggal, NoHpAdmin)
@@ -121,51 +121,51 @@ values ('Valid', '20240306', '082');
 
 --TABEL PRODUK
 insert into Produk (Nama, Deskripsi, Foto, Satuan, Harga)
-values ('Beras', 'Beras putih pandan wangi', 'foto1', 'kg', 14000);
+values ('Soto Ayam', 'Soto sulung ayam dengan nasi', '/Assets/gambarProduk/sotoSulung.jpg', 'porsi', 14000);
 insert into Produk (Nama, Deskripsi, Foto, Satuan, Harga)
-values ('Minyak', 'Minyak goreng', 'foto2', 'liter', 20000);
+values ('Soto Betawi', 'Soto daging dengan kuah santan dilengkapi nasi', '/Assets/gambarProduk/sotoBetawi.jpg', 'porsi', 20000);
 insert into Produk (Nama, Deskripsi, Foto, Satuan, Harga)
-values ('Mie Telur', 'Mie telur ayam', 'foto3', 'bungkus', 15000);
+values ('Mie Jawa Telur', 'Mie jawa dengan telur ayam', '/Assets/gambarProduk/mieJawa.jpg', 'porsi', 15000);
 insert into Produk (Nama, Deskripsi, Foto, Satuan, Harga)
-values ('Telur', 'Telur ayam negri', 'foto4', 'kg', 29000);
+values ('Telur balado', 'Telur goreng dengan bumbu balado', '/Assets/gambarProduk/telurBalado.jpg', 'butir', 29000);
 insert into Produk (Nama, Deskripsi, Foto, Satuan, Harga)
-values ('Tepung terigu', 'Tepung terigu serbaguna', 'foto5', 'kg', 12000);
+values ('Ayam goreng', 'Nasi ayam goreng lalapan', '/Assets/gambarProduk/ayamGoreng.jpg', 'kg', 12000);
 insert into Produk (Nama, Deskripsi, Foto, Satuan, Harga)
-values ('Gula', 'Gula pasir putih 500 gram', 'foto6', 'bungkus', 10000);
+values ('Rendang', 'Daging sapi rendang khas padang', '/Assets/gambarProduk/rendang.jpg', 'porsi', 10000);
 insert into Produk (Nama, Deskripsi, Foto, Satuan, Harga)
-values ('Mie instan', 'Mie instan', 'foto7', 'buah', 2000);
+values ('Bakso sapi', 'Bakso sapi halus dengan kuah dan sayur', '/Assets/gambarProduk/bakso.jpg', 'porsi', 2000);
 insert into Produk (Nama, Deskripsi, Foto, Satuan, Harga)
-values ('Roti coklat', 'Roti dengan isi coklat pasta', 'foto8', 'buah', 10000);
+values ('Roti coklat', 'Roti dengan isi coklat pasta', '/Assets/gambarProduk/rotiCoklat.jpg', 'buah', 10000);
 insert into Produk (Nama, Deskripsi, Foto, Satuan, Harga)
-values ('Roti keju', 'Roti dengan taburan keju diatas', 'foto9', 'buah', 12000);
+values ('Roti keju', 'Roti dengan taburan keju diatas', '/Assets/gambarProduk/rotiKeju.jpg', 'buah', 12000);
 insert into Produk (Nama, Deskripsi, Foto, Satuan, Harga)
-values ('Roti kismis', 'Roti dengan isian kismis', 'foto10', 'buah', 12000);
+values ('Roti kismis', 'Roti dengan isian kismis', '/Assets/gambarProduk/rotiKismis.jpg', 'buah', 12000);
 insert into Produk (Nama, Deskripsi, Foto, Satuan, Harga)
-values ('Roti srikaya', 'Roti dengan isian selaian srikaya', 'foto11', 'buah', 14000);
+values ('Roti srikaya', 'Roti dengan isian selaian srikaya', '/Assets/gambarProduk/rotiSrikaya.jpg', 'buah', 14000);
 insert into Produk (Nama, Deskripsi, Foto, Satuan, Harga)
-values ('Salmon Maki', 'sushi dengan isian salmon mentah', 'foto12', 'plater', 35000);
+values ('Salmon Maki', 'sushi dengan isian salmon mentah', '/Assets/gambarProduk/salmonMaki.jpg', 'plater', 35000);
 insert into Produk (Nama, Deskripsi, Foto, Satuan, Harga)
-values ('Salmon Sashimi', 'fresh salmon mentah', 'foto13', 'pcs', 10000);
+values ('Salmon Sashimi', 'fresh salmon mentah', '/Assets/gambarProduk/salmonSashimi.jpg', 'pcs', 10000);
 insert into Produk (Nama, Deskripsi, Foto, Satuan, Harga)
-values ('Tuna roll', 'gulungan nori dengan isian ikan tuna dan timun', 'foto14', 'plater', 25000);
+values ('Tuna roll', 'gulungan nori dengan isian ikan tuna dan timun', '/Assets/gambarProduk/tunaRoll.jpg', 'plater', 25000);
 insert into Produk (Nama, Deskripsi, Foto, Satuan, Harga)
-values ('Siomay', 'pangsit yang diisi dengan ikan tenggiri', 'foto15', 'pcs', 2000);
+values ('Siomay', 'pangsit yang diisi dengan ikan tenggiri', '/Assets/gambarProduk/siomay.jpg', 'pcs', 2000);
 insert into Produk (Nama, Deskripsi, Foto, Satuan, Harga)
-values ('Tahu', 'pangsit yang diisi dengan ikan tenggiri dengan ada tambahan tahu', 'foto16', 'pcs', 2000);
+values ('Tahu', 'pangsit yang diisi dengan ikan tenggiri dengan ada tambahan tahu', '/Assets/gambarProduk/tahu.jpg', 'pcs', 2000);
 insert into Produk (Nama, Deskripsi, Foto, Satuan, Harga)
-values ('Nasi goreng ayam', 'nasi yang di goreng dengan telur dan bumbu spesial dan tambahan ayam', 'foto17', 'bungkus', 15000);
+values ('Nasi goreng ayam', 'nasi yang di goreng dengan telur dan bumbu spesial dan tambahan ayam', '/Assets/gambarProduk/nasgorAyam.jpg', 'bungkus', 15000);
 insert into Produk (Nama, Deskripsi, Foto, Satuan, Harga)
-values ('Nasi goreng spesial', 'nasi yang di goreng dengan telur dan bumbu spesial dan tambahan ayam, seafood, ati ampela', 'foto18', 'bungkus', 30000);
+values ('Nasi goreng spesial', 'nasi yang di goreng dengan telur dan bumbu spesial dan tambahan ayam, seafood, ati ampela', '/Assets/gambarProduk/nasgorSpesial.jpg', 'bungkus', 30000);
 insert into Produk (Nama, Deskripsi, Foto, Satuan, Harga)
-values ('Kwetiaw Goreng', 'Kweatiau di goreng dengan telor dan bumbu spesial dengan tambahan ayam', 'foto19', 'bungkus', 15000);
+values ('Kwetiaw Goreng', 'Kweatiau di goreng dengan telor dan bumbu spesial dengan tambahan ayam', '/Assets/gambarProduk/kwetiawGoreng.jpg', 'bungkus', 15000);
 insert into Produk (Nama, Deskripsi, Foto, Satuan, Harga)
-values ('Kwetiaw Rebus', 'Kweatiau di rebus dengan telor dan bumbu spesial dengan tambahan ayam', 'foto20', 'bungkus', 15000);
+values ('Kwetiaw Rebus', 'Kweatiau di rebus dengan telor dan bumbu spesial dengan tambahan ayam', '/Assets/gambarProduk/kwetiawRebus.jpg', 'bungkus', 15000);
 insert into Produk (Nama, Deskripsi, Foto, Satuan, Harga)
-values ('Tabung Gas Bright 5,5 kg', 'Tabung gas berwarna pink dengan muatan 5,5 kg', 'foto21', 'tabung', 65000);
+values ('Teh botol 250ml', 'Teh botol sosro dalam kemasan kotak', '/Assets/gambarProduk/tehBotol250.jpg', 'kotak', 65000);
 insert into Produk (Nama, Deskripsi, Foto, Satuan, Harga)
-values ('Tabung Gas 12 kg', 'Tabung gas berwarna biru dengan muatan 12 kg', 'foto22', 'tabung', 170000);
+values ('Frestea markisa 600ml', 'Frestea markisa dalam kemasan botol', '/Assets/gambarProduk/fresteaMarkisa600.jpg', 'botol', 170000);
 insert into Produk (Nama, Deskripsi, Foto, Satuan, Harga)
-values ('Tabung Gas 3 kg', 'Tabung gas berwarna hijau dengan muatan 3 kg untuk subsidi', 'foto23', 'tabung', 23000);
+values ('Aqua 600ml', 'Air mineral aqua dingin 600 ml kemasan botol', '/Assets/gambarProduk/aqua600.jpg', 'botol', 23000);
 
 --TABEL PRODUK UMK
 insert into ProdukUMK (NoHpUMK) values ('081234');
