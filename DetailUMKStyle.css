@@ -23,9 +23,10 @@ body main{
 .main{
     display: grid;
     justify-content: center;
+    margin: 20px;
     grid-template-columns: 50% 50%;
     grid-template-rows: 80px 150px 150px 150px 150px 150px;
-    column-gap: 10px;
+    column-gap: 40px;
     grid-template-areas: 
     "h h"
     "i1 i6"
@@ -92,8 +93,11 @@ label:nth-child(1){
     flex-direction: column;
 }
 .logo img{
-    width: 100%;
+    width: 80%;
     height: 100%;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
 }
 .cross{
     width: 60%;
