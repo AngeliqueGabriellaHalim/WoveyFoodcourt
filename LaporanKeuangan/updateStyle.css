@@ -1,12 +1,13 @@
-body {
-  margin: 0px;
+/* Grid Layout */
+.page-container {
   display: grid;
   grid-template-areas:
     "logo header header"
-    "nav body body"
-    "nav . page-nav";
-  grid-template-rows: 100px 1fr 1fr;
-  grid-template-columns: 200px 1fr 1fr;
+    "sidebar main main"
+    "sidebar . page-nav";
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: 100px 1fr;
+  height: 100vh;
   background-color: #f5f7fa;
 }
 
@@ -16,15 +17,57 @@ p {
   letter-spacing: -0.01em;
 }
 
+a {
+  font-family: "Inter-SemiBold", sans-serif;
+  line-height: 100%;
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-family: "Inter-SemiBold", sans-serif;
+  line-height: 100%;
+  letter-spacing: -0.01em;
+}
+
+.logo {
+  grid-area: logo;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-right: 1px solid #b1b1b1;
+  font-size: 28px;
+  font-weight: 600;
+  color: #343c6a;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  background-color: white;
+  border-right: 1px solid #b1b1b1;
+  padding: 20px;
+}
+
+.badge {
+  color: white;
+  font-family: "Inter-Medium", sans-serif;
+  background-color: #ff625c;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.nav-keuangan {
+  color: #0058ea;
+  font-weight: bold;
+}
+
 .navigation {
   position: relative;
   inset: 0;
   display: flex;
   flex-direction: column;
-  grid-area: nav;
   background-color: white;
-  padding: 20px;
-  border-right: 1px solid #b1b1b1;
+  color: #b1b1b1;
 }
 
 .navigation > div {
@@ -39,42 +82,20 @@ p {
   overflow: visible;
 }
 
-.nav-keuangan {
-  color: #0058ea;
-  font-weight: bold;
-}
-
-.logo {
-  position: relative;
-  display: flex;
-  grid-area: logo;
-  background-color: white;
-  padding-left: 20px;
-  border-right: 1px solid #b1b1b1;
-}
-
-.wovey {
-  color: #343c6a;
-  text-align: left;
-  font-size: 28px;
-  font-weight: 600;
-  /* left: 30px; */
-  /* top: 23px; */
-}
-
 .header {
-  display: flex;
   grid-area: header;
+  display: flex;
   justify-content: space-between;
-  padding: 0px 20px 0px 20px;
-  background-color: white;
   align-items: center;
+  padding: 0 20px;
+  background-color: white;
   border-bottom: 1px solid #b1b1b1;
 }
 
 .keuangan-header {
   font-weight: 600;
   font-size: 28px;
+  color: #343c6a;
 }
 
 .profile {
@@ -85,13 +106,21 @@ p {
 .main-content {
   display: flex;
   flex-direction: column;
-  grid-area: body;
+  grid-area: main;
+  padding: 20px;
+  background-color: #f5f7fa;
+  row-gap: 20px;
 }
 
 .sub-header {
+  grid-column: span 2;
+}
+
+.sub-sub-header {
   display: flex;
+  align-items: center;
+  column-gap: 15px;
   justify-content: space-between;
-  padding-left: 20px;
 }
 
 input {
@@ -104,9 +133,33 @@ label {
 
 .range-date {
   display: flex;
-  align-items: flex-end;
-  padding-right: 20px;
-  column-gap: 15px;
+  align-items: center;
+  column-gap: 10px;
+}
+
+.range-date input[type="date"] {
+  font-family: "Inter-Medium", sans-serif;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #b1b1b1;
+  background-color: #ffffff;
+  color: #232323;
+  font-size: 14px;
+  width: 180px;
+  height: 10px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.range-date input[type="date"]:focus {
+  border-color: #0058ea;
+  box-shadow: 0 0 5px rgba(0, 88, 234, 0.3);
+  background-color: #f5f7fa;
+}
+
+.range-date input[type="date"]::-webkit-calendar-picker-indicator {
+  border-radius: 5px;
+  padding: 5px;
 }
 
 .daftar-produk {
@@ -116,13 +169,23 @@ label {
 
 .saldo {
   margin-top: 10px;
-  width: 15%;
+  width: 20%;
+  height: 25%;
   border: 1px solid #b1b1b1;
   border-radius: 15px;
   background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  row-gap: 15px;
 }
 
-.saldo p {
+.saldo img {
+  width: 50px;
+  height: 50px;
+}
+
+.saldo .nominal-saldo {
   color: #232323;
   text-align: center;
   font-family: "Inter-SemiBold", sans-serif;
@@ -131,15 +194,23 @@ label {
   line-height: 25%;
 }
 
+.saldo .current-saldo {
+  color: #7b7b7b;
+  text-align: center;
+  font-family: "Inter-SemiBold", sans-serif;
+  font-size: 12px;
+  line-height: 25%;
+}
 .semua-transaksi {
   padding-left: 20px;
   color: #0058ea;
   font-weight: bold;
-  text-decoration: underline #0058ea;
 }
 
 .list-keuangan {
   padding: 0px 20px 0px 20px;
+  overflow-y: auto;
+  max-height: 300px;
 }
 
 table {
@@ -159,9 +230,11 @@ table td {
   padding: 30px 10px;
 }
 
-table th {
-  padding: 10px 10px;
-  color: #343c6a;
+.table-header {
+  font-family: "Inter-Medium", sans-serif;
+  color: #718ebf;
+  font-weight: bold;
+  text-align: center;
 }
 
 .page-navigation-container {
