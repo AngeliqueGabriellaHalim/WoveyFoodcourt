@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daftar Produk Terlaku</title>
+    <link
+      rel="stylesheet"
+      href="./Assets/admin/PenjualanProduk/PenjualanProdukStyle.css"
+    />
+  </head>
+
+  <body>
+    <div class="page-container">
+      <!-- Logo Section -->
+      <div class="logo">
+        <p class="wovey">Wovey<br />Foodcourt .</p>
+      </div>
+
+      <!-- Sidebar Section -->
+      <div class="sidebar">
+        <div class="navigation">
+          <div class="menu-item dashboard">
+            <img
+              class="icon-dashboard"
+              src="./Assets/admin/PenjualanProduk/house.svg"
+            />
+            <label for=""><a th:href="@{/admin/home}">Dashboard</a></label>
+          </div>
+
+          <div class="menu-item daftar-umk">
+            <img class="icon-daftar-umk" src="assets/book-030.svg" />
+            <label for=""><a th:href="@{/admin/umk}">Daftar UMK</a></label>
+          </div>
+
+          <div class="menu-item verifikasi">
+            <img class="icon-verifikasi" src="assets/folder-check0.svg" />
+            <a class="nav-verifikasi">Verifikasi</a>
+            <span
+              class="badge"
+              th:text="${totalUmkTidakTerdaftarBadge}"
+              th:style="|display: ${totalUmkTidakTerdaftarBadge > 0 ? 'inline-block' : 'none'}|"
+            ></span>
+          </div>
+
+          <div class="menu-item penjualan">
+            <img class="icon-penjualan" src="assets/icon-graph0.svg" />
+            <a th:href="@{/admin/penjualan}">Penjualan</a>
+          </div>
+
+          <div class="menu-item log-out">
+            <img class="icon-log-out" src="assets/logout-040.svg" />
+            <a th:href="@{login/out}">Log Out</a>
+          </div>
+
+          <div class="menu-item bantuan">
+            <img class="icon-bantuan" src="assets/help-circle-contained0.svg" />
+            <p class="nav-bantuan">Bantuan</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Header Section -->
+      <div class="header">
+        <div class="header-navigator">
+          <a class="penjualan-header">Penjualan </a>
+          <a class="symbol">&gt;</a>
+          <a class="UMK-header"> Produk</a>
+        </div>
+        <img class="profile" src="assets/generic-avatar0.svg" />
+      </div>
+
+      <div class="main-content">
+        <div class="sub-header">
+          <div class="sub-header-with-popup">
+            <p class="sub-header-title">Daftar Produk Terlaku</p>
+            <img
+              src="./Assets/admin/PenjualanProduk/tandatanya.svg"
+              alt=""
+              id="tandatanya"
+            />
+            <img
+              src="./Assets/admin/PenjualanProduk/popup1.svg"
+              alt=""
+              id="popup"
+              style="visibility: hidden"
+            />
+          </div>
+
+          <div class="input-jumlah-umk">
+            <input
+              type="text"
+              placeholder="Masukkan jumlah yang ingin dicari (1-1000):"
+            />
+            <button type="submit" class="ok-button">OK</button>
+          </div>
+        </div>
+
+        <div class="list-umk">
+          <table>
+            <tr>
+              <th>Nama Produk</th>
+              <th>Jumlah Terjual</th>
+              <th>UMK</th>
+              <th>No.HP</th>
+            </tr>
+            <tr></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const select = document.getElementById("popup");
+      const hover = document.getElementById("tandatanya");
+      hover.addEventListener("mouseenter", () => {
+        select.style.visibility = "visible";
+      });
+      hover.addEventListener("mouseleave", () => {
+        select.style.visibility = "hidden";
+      });
+    </script>
+  </body>
+</html>
