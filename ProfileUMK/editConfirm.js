@@ -4,6 +4,12 @@ const overlay = document.getElementById("regis-sent"); // Elemen overlay
 const noButton = document.querySelector(".no-btn"); // Tombol 'OK' di overlay
 const yesButton = document.querySelector(".yes-btn"); // Tombol 'OK' di overlay
 
+const profileNav = document.getElementById("profile");
+
+profileNav.addEventListener("click", function () {
+  window.location.href = "index.html";
+});
+
 // Menampilkan overlay ketika tombol 'Buat Akun' diklik
 submitButton.addEventListener("click", function () {
   overlay.classList.remove("hidden");

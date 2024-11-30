@@ -86,6 +86,10 @@ body {
   color: #343c6a;
 }
 
+.header-text {
+  display: flex;
+  column-gap: 10px;
+}
 .main-content {
   grid-area: main;
   padding: 0px 20px;
@@ -104,7 +108,7 @@ body {
   margin: 20px;
   display: grid;
   grid-template-areas: "left right button";
-  grid-template-columns: 1fr 1fr 150px;
+  grid-template-columns: 1fr 1fr 200px;
   height: fit-content;
 }
 
@@ -134,33 +138,23 @@ body {
 }
 
 .umk-logo {
-  width: 150px;
-  height: 150px;
+  width: 300px;
+  height: 300px;
   margin-top: 10px;
 }
 
-/* Edit Profile Button */
-.edit-profile-btn {
-  grid-area: button;
+.edit-profile-btn button {
   background-color: #0058ea;
   color: white;
   font-weight: 600;
   border: none;
-  border-radius: 15px;
+  border-radius: 5px;
+  padding: 10px 20px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  width: 150px;
-  height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
 }
 
-.edit-profile-btn:hover {
+.edit-profile-btn button:hover {
   background-color: #0041b5;
-}
-
-.edit-profile-btn a {
-  text-decoration: none;
-  color: white;
 }

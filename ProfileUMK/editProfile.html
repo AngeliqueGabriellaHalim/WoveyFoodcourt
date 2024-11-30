@@ -58,7 +58,11 @@
 
       <!-- Header Section -->
       <div class="header">
-        <p class="profile-header">Profile</p>
+        <div class="header-text">
+          <p class="profile-header" id="profile">Profile</p>
+          <p class="profile-header">&gt;</p>
+          <p class="profile-header" id="editProfile">Edit Profile</p>
+        </div>
         <img class="profile" src="assets/generic-avatar0.svg" />
       </div>
 
@@ -108,31 +112,6 @@
 
             <div class="right-profile">
               <div class="profile-item">
-                <label for="rekening">Rekening</label>
-                <select id="rekening" name="rekening">
-                  <option value="" selected disabled>Pilih Bank</option>
-                  <option value="bank-bca">Bank BCA</option>
-                  <option value="bank-mandiri">Bank Mandiri</option>
-                  <option value="bank-bni">Bank BNI</option>
-                  <option value="bank-bri">Bank BRI</option>
-                  <option value="bank-btn">Bank BTN</option>
-                  <option value="bank-cimb-niaga">Bank CIMB Niaga</option>
-                  <option value="bank-permata">Bank Permata</option>
-                  <option value="bank-ocbc">Bank OCBC</option>
-                </select>
-              </div>
-
-              <div class="profile-item">
-                <label for="rekening">No. Rekening</label>
-                <input
-                  type="text"
-                  id="noRekening"
-                  name="noRekening"
-                  placeholder="Ex: 1234567"
-                />
-              </div>
-
-              <div class="profile-item">
                 <label for="nomor-telepon">Nomor Telepon</label>
                 <input
                   type="text"
@@ -168,11 +147,12 @@
     <div id="regis-sent" class="overlay hidden">
       <div class="overlay-content">
         <!-- <img src="check-icon0.png" alt="Check Icon" class="check-icon" /> -->
-        <h1>Apakah anda ingin menyimpan perubahan?</h1>
+        <h1>Apakah anda yakin ingin menyimpan perubahan?</h1>
         <p>Cek kembali masukan anda!</p>
         <button class="yes-btn" id="confirm-yes">Ya</button>
         <button class="no-btn" id="confirm-no">Tidak</button>
       </div>
     </div>
+    s
   </body>
 </html>

@@ -57,7 +57,10 @@
 
       <!-- Header Section -->
       <div class="header">
-        <p class="profile-header">Profile</p>
+        <div class="header-text">
+          <p class="profile-header">Profile</p>
+        </div>
+
         <img class="profile" src="assets/generic-avatar0.svg" />
       </div>
 
@@ -83,12 +86,7 @@
               <label>Total Produk</label>
               <p>15 Produk</p>
             </div>
-            <div class="profile-item">
-              <label>Rekening</label>
-              <p>Bank BCA - 1234567890</p>
-            </div>
-          </div>
-          <div class="right-profile">
+
             <div class="profile-item">
               <label>Tanggal Bergabung</label>
               <p>1 Januari 2023</p>
@@ -98,19 +96,27 @@
               <label>Nomor Telepon</label>
               <p>08123456789</p>
             </div>
-
+          </div>
+          <div class="right-profile">
             <div class="profile-item">
               <label>Logo UMK</label>
               <img src="assets/profile.png" class="umk-logo" />
             </div>
           </div>
 
-          <!-- Edit Profile Button -->
           <div class="edit-profile-btn">
-            <a href="editProfile.html">Edit Profile UMK</a>
+            <button type="button" class="submit-button">Edit Profile</button>
           </div>
         </div>
       </div>
     </div>
+
+    <script>
+      const editButton = document.querySelector(".submit-button");
+
+      editButton.addEventListener("click", function () {
+        window.location.href = "editProfile.html";
+      });
+    </script>
   </body>
 </html>
