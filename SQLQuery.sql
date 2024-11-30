@@ -43,7 +43,7 @@ CREATE TABLE UMK (
 
 create table Transaksi(
 	IdTransaksi int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-	Nominal money,
+	Nominal numeric,
 	IdJenis int REFERENCES JenisTransaksi,
 	Tanggal date,
 	NoHpUMK varchar(255) REFERENCES UMK
