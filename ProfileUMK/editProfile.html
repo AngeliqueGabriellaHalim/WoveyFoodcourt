@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile UMKs</title>
+    <link href="editProfileStyle.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="page-container">
+      <div class="logo">
+        <p class="wovey">Wovey<br />Foodcourt .</p>
+      </div>
+
+      <!-- Sidebar Section -->
+      <div class="sidebar">
+        <div class="navigation">
+          <div class="menu-item dashboard">
+            <img class="icon-dashboard" src="assets/icon-nav-dashboard0.svg" />
+            <p class="nav-dashboard">Dashboard</p>
+          </div>
+
+          <div class="menu-item produk">
+            <img class="icon-produk" src="assets/icon-produk.svg" />
+            <p class="nav-produk">Produk</p>
+          </div>
+
+          <div class="menu-item transaksi">
+            <img class="icon-transaksi" src="assets/icon-transaksi0.svg" />
+            <p class="nav-transaksi">Transaksi</p>
+          </div>
+
+          <div class="menu-item keuangan">
+            <img class="icon-keuangan" src="assets/icon-keuangan0.svg" />
+            <p class="nav-keuangan">Keuangan</p>
+          </div>
+          <div class="menu-item penjualan">
+            <img class="icon-penjualan" src="assets/icon-penjualan.svg" />
+            <p class="nav-penjualan">Penjualan</p>
+          </div>
+
+          <div class="nav-divider">
+            <hr class="solid" />
+          </div>
+
+          <div class="menu-item log-out">
+            <img class="icon-log-out" src="assets/icon-logout.svg" />
+            <p class="nav-log-out">Log Out</p>
+          </div>
+
+          <div class="menu-item bantuan">
+            <img class="icon-bantuan" src="assets/icon-bantuan.svg" />
+            <p class="nav-bantuan">Bantuan</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Header Section -->
+      <div class="header">
+        <p class="profile-header">Profile</p>
+        <img class="profile" src="assets/generic-avatar0.svg" />
+      </div>
+
+      <div class="main-content">
+        <div class="profile-details">
+          <form class="profile-form">
+            <div class="left-profile">
+              <div class="profile-item">
+                <label for="nama-umk">Nama UMK</label>
+                <input
+                  type="text"
+                  id="nama-umk"
+                  name="nama-umk"
+                  placeholder="Ex: Warung Sate Bu Ngantuk"
+                />
+              </div>
+
+              <div class="profile-item">
+                <label for="nama-pemilik">Nama Pemilik</label>
+                <input
+                  type="text"
+                  id="nama-pemilik"
+                  name="nama-pemilik"
+                  placeholder="Ex: Turu Asinta"
+                />
+              </div>
+
+              <div class="profile-item">
+                <label for="alamat">Alamat</label>
+                <input
+                  type="text"
+                  id="alamat"
+                  name="alamat"
+                  placeholder="Ex: Jl. Kopo Indah No. 2A, Bandung"
+                />
+              </div>
+
+              <div class="profile-item">
+                <label for="total-produk">Total Produk</label>
+                <input
+                  type="text"
+                  id="total-produk"
+                  name="total-produk"
+                  placeholder="Ex: 15"
+                />
+              </div>
+            </div>
+
+            <div class="right-profile">
+              <div class="profile-item">
+                <label for="rekening">Rekening</label>
+                <input
+                  type="text"
+                  id="rekening"
+                  name="rekening"
+                  placeholder="Ex: Bank X"
+                />
+              </div>
+
+              <div class="profile-item">
+                <label for="rekening">No. Rekening</label>
+                <input
+                  type="text"
+                  id="noRekening"
+                  name="noRekening"
+                  placeholder="Ex: 1234567"
+                />
+              </div>
+
+              <div class="profile-item">
+                <label for="nomor-telepon">Nomor Telepon</label>
+                <input
+                  type="text"
+                  id="nomor-telepon"
+                  name="nomor-telepon"
+                  placeholder="Ex: 08123456789"
+                />
+              </div>
+
+              <div class="profile-item">
+                <label for="logo-umk">Logo UMK</label>
+                <input
+                  type="file"
+                  id="logo-umk"
+                  name="logo-umk"
+                  accept="image/*"
+                />
+              </div>
+            </div>
+
+            <!-- Save Changes Button -->
+            <div class="edit-profile-btn">
+              <button type="submit">Simpan Perubahan</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
