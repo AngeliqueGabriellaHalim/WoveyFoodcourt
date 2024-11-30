@@ -47,12 +47,7 @@
 
         <div class="menu-item log-out">
           <img class="icon-log-out" src="/Assets/admin/terlaris/logout-040.svg" />
-          <p class="nav-log-out">Log Out</p>
-        </div>
-
-        <div class="menu-item bantuan">
-          <img class="icon-bantuan" src="/Assets/admin/terlaris/help-circle-contained0.svg" />
-          <p class="nav-bantuan">Bantuan</p>
+          <p class="nav-log-out"><a th:href="@{login/out}">Log Out</a></p>
         </div>
       </div>
     </div>
@@ -83,8 +78,8 @@
         <table>
           <tr>
             <th>Nama UMK</th>
-            <th>Kuantitas Transaksi</th>
-            <th>Total transaksi</th>
+            <th>Kuantitas Transaksi Penjualan Produk</th>
+            <th>Total Transaksi Penjualan Produk</th>
           </tr>
           <tr th:each="row : ${results}">
             <td th:text="${row.namaUMK}"></td>
@@ -94,6 +89,7 @@
         </table>
       </div>
     </div>
+  </div>
   </div>
 </body>
 

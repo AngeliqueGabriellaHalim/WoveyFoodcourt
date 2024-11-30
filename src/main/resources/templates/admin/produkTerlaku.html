@@ -2,118 +2,110 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PenjualanAdmin</title>
-    <link rel="stylesheet" href="/Assets/admin/PenjualanProduk/PenjualanProdukStyle.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daftar Produk Terlaku</title>
+  <link rel="stylesheet" href="/Assets/admin/PenjualanProduk/PenjualanProdukStyle.css" />
 </head>
 
 <body>
-    <main>
-        <div class="side">
-            <div class="judul">
-                <label for="">Wovey</label>
-                <label for="">Foodcourt.</label>
-            </div>
-            <button class="groupside">
-                <img src="/Assets/admin/PenjualanProduk/house.svg" alt="">
-                <label for="">Dashboard</label>
-            </button>
-            <button class="groupside">
-                <img src="/Assets/admin/PenjualanProduk/book.svg" alt="">
-                <label for="">Daftar UMK</label>
-            </button>
-            <button class="groupside">
-                <img src="/Assets/admin/PenjualanProduk/fileceklist.svg" alt="">
-                <label for="">Verifikasi</label>
-                <img src="/Assets/admin/PenjualanProduk/notif.svg" alt="" style="width:40px;">
-            </button>
-            <button class="groupsidemain">
-                <img src="/Assets/admin/PenjualanProduk/stonks.svg" alt="">
-                <label for="" value="daftarumk">Penjualan</label>
-            </button>
-            <button class="groupside">
-                <img src="/Assets/admin/PenjualanProduk/logout.svg" alt="">
-                <label for="">Log Out</label>
-            </button>
-            <button class="groupside">
-                <img src="/Assets/admin/PenjualanProduk/help.svg" alt="">
-                <label for="">Bantuan</label>
-            </button>
-        </div>
-        <div class="Header">
-            <label for=""><a href="PenjualanAdmin.html" style="color:#343C6A">Penjualan</a> > Produk</label>
-        </div>
-        <div class="Main">
+  <div class="page-container">
+    <!-- Logo Section -->
+    <div class="logo">
+      <p class="wovey">Wovey<br />Foodcourt .</p>
+    </div>
 
-            <div class="head">
-                <div class="head-group1">
-                    <h1>Daftar Produk Terlaris</h1>
-                    <img src="//Assets/admin/PenjualanProduk/tandatanya.svg" alt="" id="tandatanya">
-                    <img src="//Assets/admin/PenjualanProduk/popup1.svg" alt="" id="popup" style="visibility: hidden;">
-                </div>
-                <div class="head-group2">
-                    <h2>Banyak Produk</h2>
-                    <input type="text" placeholder="Masukkan angka (1-1000)"> <button type="button">OK</button>
-                </div>
-            </div>
-            <div class="innerborder">
-                <table>
-                    <tr style="color: #343C6A;">
-                        <th>Nama produk</th>
-                        <th>Jumlah Terjual</th>
-                        <th>UMK</th>
-                        <th>No.HP</th>
-                    </tr>
-                    <tr>
-                        <td>Milk Bun</td>
-                        <td>5431</td>
-                        <td>Toko Wombi</td>
-                        <td>08298174</td>
-                    </tr>
-                    <tr>
-                        <td>Roti Tawar</td>
-                        <td>4209</td>
-                        <td>Toko Wombu</td>
-                        <td>08871365</td>
-                    </tr>
-
-                    <tr>
-                        <td>Milk Cornet</td>
-                        <td>3989</td>
-                        <td>Toko Womba</td>
-                        <td>08892357</td>
-                    </tr>
-                    <tr>
-                        <td>Egg Tart</td>
-                        <td>3791</td>
-                        <td>Toko Wombe</td>
-                        <td>08517356</td>
-                    </tr>
-                    <tr>
-                        <td>Roti Coklat</td>
-                        <td>2891</td>
-                        <td>Toko Wombo</td>
-                        <td>08126543</td>
-                    </tr>
-                </table>
-            </div>
-            <div class="page">
-                <img src="/Assets/admin/PenjualanProduk/page.svg" alt="">
-            </div>
+    <!-- Sidebar Section -->
+    <div class="sidebar">
+      <div class="navigation">
+        <div class="menu-item dashboard">
+          <img class="icon-dashboard" src="/Assets/admin/PenjualanProduk/home-20.svg" />
+          <p class="nav-dashboard"><a th:href="@{/admin/home}">Dashboard</a></p>
         </div>
-    </main>
-    <script>
-        const select = document.getElementById("popup");
-        const hover = document.getElementById("tandatanya");
-        hover.addEventListener("mouseenter", () => {
-            select.style.visibility = "visible";
-        });
-        hover.addEventListener("mouseleave", () => {
-            select.style.visibility = "hidden";
-        });
-    </script>
 
+        <div class="menu-item daftar-umk">
+          <img class="icon-daftar-umk" src="/Assets/admin/PenjualanProduk/book-030.svg" />
+          <p class="nav-daftar-umk"><a th:href="@{/admin/umk}">Daftar UMK</a></p>
+        </div>
+
+        <div class="menu-item verifikasi">
+          <img class="icon-verifikasi" src="/Assets/admin/PenjualanProduk/folder-check0.svg" />
+          <p class="nav-verifikasi"><a th:href="@{/admin/verifikasi}">Verifikasi</a></p>
+          <span class="badge" th:text="${totalUmkTidakTerdaftarBadge}"
+            th:style="|display: ${totalUmkTidakTerdaftarBadge > 0 ? 'inline-block' : 'none'}|"></span>
+        </div>
+
+        <div class="menu-item penjualan">
+          <img class="icon-penjualan" src="/Assets/admin/PenjualanProduk/icon-graph0.svg" />
+          <p class="nav-penjualan"><a th:href="@{/admin/penjualan}">Penjualan</a></p>
+        </div>
+
+        <div class="nav-divider">
+          <hr class="solid" />
+        </div>
+
+        <div class="menu-item log-out">
+          <img class="icon-log-out" src="/Assets/admin/PenjualanProduk/logout-040.svg" />
+          <p class="nav-log-out"><a th:href="@{login/out}">Log Out</a></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Header Section -->
+    <div class="header">
+      <div class="header-navigator">
+        <a class="penjualan-header" th:href="@{/admin/penjualan}">Penjualan</a>
+        <a class="UMK-header" th:href="@{/admin/penjualan/terlaku}"> &gt; Produk</a>
+      </div>
+      <img class="profile" src="/Assets/admin/PenjualanProduk/generic-avatar0.svg" />
+    </div>
+
+    <div class="main-content">
+      <div class="sub-header">
+        <div class="sub-header-with-popup">
+          <p class="sub-header-title">Daftar Produk Terlaku</p>
+          <img src="/Assets/admin/PenjualanProduk/tandatanya.svg" alt="" id="tandatanya" />
+          <img src="/Assets/admin/PenjualanProduk/popup1.svg" alt="" id="popup" style="visibility: hidden" />
+        </div>
+
+        <div class="input-jumlah-umk">
+          <form th:action="@{/admin/penjualan/terlaku}" th:method="GET">
+            <input type="text" placeholder="Masukkan jumlah yang ingin dicari (1-1000):" th:value="${filter}"
+              name="filter" />
+            <button type="submit" class="ok-button">OK</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="list-umk">
+        <table>
+          <tr>
+            <th>Nama Produk</th>
+            <th>Jumlah Terjual</th>
+            <th>UMK</th>
+            <th>No.HP</th>
+          </tr>
+          <tr th:each="row : ${results}">
+            <td th:text="${row.idproduk}"></td>
+            <td th:text="${row.kuantitas}"></td>
+            <td th:text="${row.namaumk}"></td>
+            <td th:text="${row.nohp}"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const select = document.getElementById("popup");
+    const hover = document.getElementById("tandatanya");
+    hover.addEventListener("mouseenter", () => {
+      select.style.visibility = "visible";
+    });
+    hover.addEventListener("mouseleave", () => {
+      select.style.visibility = "hidden";
+    });
+  </script>
 </body>
 
 </html>
