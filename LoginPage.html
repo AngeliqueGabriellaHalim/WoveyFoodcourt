@@ -1,172 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LoginPage</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
     <style>
-        body{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            height: 1024px;
-        }
-        main{
-            width: 1255px;
-            height: 937px;
-            border: 1px solid grey;
-            border-radius: 9px;
-            display: grid;
-            grid-template-columns: 627.5px 627.5px;
-            grid-template-rows: 937px;
-            grid-template-areas:
-            "h p"
-            ;
-        }
-        .div1{
-            grid-area: h;
-            padding: 40px;
-            display: grid;
-            grid-template-columns: 627.5px;
-            grid-template-rows: 200px 100px 50px 80px 100px 200px;
-            grid-template-areas:
-            "h1"
-            "h2"
-            "h3"
-            "h4"
-            "h5"
-            "h6"
-            ;
-        }
-        .div1 .judul{
-            grid-area: h1;
-            display: flex;
-            flex-direction: column;
-            font-family: sans-serif;
-            color: #343C6A;
-            font-weight: bold;
-            font-size: 48px;
-        }
-        .item1 label[value="1"]{
-            grid-area: h2;
-            display: flex;
-            flex-direction: column;
-            font-family: sans-serif;
-            color: #343C6A;
-            font-weight: bold;
-            font-size: 40px;
-        }
-        .item1 label[value="2"]{
-            grid-area: h2;
-            display: flex;
-            flex-direction: column;
-            font-family: sans-serif;
-            color: #313131;
-            font-size: 18px;
-        }
-        .item2,.item3{
-            display: flex;
-            margin: 0px;
-            padding: 0px;
-            margin-top: 20px;
-        }
-        .item2 label,.item3 label{
-            flex:0.65;
-            color: #343C6A;
-            font-family: sans-serif;
-            font-weight: 500;
-            font-size: 20px;
-        }
-        .item2 input,.item3 input{
-            height: 30px;
-            width: 300px;
-            border-radius: 6px;
-            border: 1px solid #79747E;
-            color: #79747E;
-        }
-        .item2{
-            grid-area: h3;
-        }
-        .item3{
-            grid-area: h4;
-        }
-        .item4{
-            grid-area: h5;
-            display: flex;
-            justify-content: center;
-            flex-direction: row;
-            color: #343C6A;
-            font-family: sans-serif;
-            padding: 40px;
-            padding-left: -0px;
-        }
-        .item4 input{
-            flex:0.02;
-            width: 90px;
-        }
-        .item4 label{
-            flex:1
-        }
-        .item4 a{
-            flex:0.55;
-            color: red;
-        }
-        .item5 button{
-            grid-area: h6;
-            color: white;
-            font-family: sans-serif;
-            width:512px;
-            height: 48px;
-            font-size: 16px;
-            background-color: #2D60FF;
-            border: #343C6A;
-            border-radius: 9px;
-        }
-        .item5 button:hover{
-            background-color: rgba(0, 88, 234, 0.8);
-        }
-        .item6{
-            grid-area: p;
-            background-image: url(Assets/loginPic.svg);
-            border-radius: 9px;
-        }
-        img{
-            width: 627.5px;
-            height: 937px;
-        }
+      body {
+        margin: 0;
+        font-family: "Inter-Regular", sans-serif;
+        background-color: #f9fafb;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        /* Memastikan kontainer ada di tengah */
+      }
+
+      .container {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        column-gap: 0;
+        height: 500px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        border-radius: 25px;
+      }
+
+      .left-section {
+        grid-area: h;
+        padding: 0px 40px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 50px;
+      }
+
+      .left-section .judul {
+        display: flex;
+        flex-direction: column;
+        font-family: "Inter-Regular", sans-serif;
+        color: #343c6a;
+        font-weight: bold;
+        font-size: 40px;
+        align-items: flex-start;
+        margin-top: 30px;
+      }
+
+      .header label[value="1"] {
+        display: flex;
+        flex-direction: column;
+        font-family: "Inter-Regular", sans-serif;
+        color: #343c6a;
+        font-weight: bold;
+        font-size: 40px;
+      }
+
+      .header label[value="2"] {
+        display: flex;
+        flex-direction: column;
+        font-family: "Inter-Regular", sans-serif;
+        color: #313131;
+        font-size: 18px;
+      }
+
+      .noTelp,
+      .pass {
+        display: flex;
+        margin: 0px;
+        padding: 0px;
+        margin-top: 20px;
+      }
+
+      .noTelp label,
+      .pass label {
+        flex: 0.65;
+        color: #343c6a;
+        font-family: "Inter-Regular", sans-serif;
+        font-weight: 600;
+        font-size: 20px;
+      }
+
+      .noTelp input,
+      .pass input {
+        height: 30px;
+        width: 300px;
+        border-radius: 6px;
+        border: 1px solid #79747e;
+        color: #79747e;
+      }
+
+      .noTelp {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .pass {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .item4 {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        color: #343c6a;
+        font-family: "Inter-Regular", sans-serif;
+        padding: 40px;
+        padding-left: -0px;
+      }
+
+      .item4 input {
+        flex: 0.02;
+        width: 90px;
+      }
+
+      .item4 label {
+        flex: 1;
+      }
+
+      .item4 a {
+        color: red;
+      }
+
+      .button-submit button:hover {
+        background-color: rgba(0, 88, 234, 0.8);
+      }
+
+      img {
+        width: 100%;
+        height: 500px;
+      }
+
+      .login-button {
+        background-color: #0058ea;
+        color: white;
+        font-weight: 600;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
     </style>
-</head>
-<body>
-    <main>
-        <div class="div1">
-            <div class="judul">
-                <label for="">Wovey</label>
-                <label for="">Foodcourt.</label>
-            </div>
-            <div class="item1">
-                <label for="" value="1">Selamat Datang</label>
-                <label for="" value="2">Mari masuk ke akun anda!</label>
-            </div>
-            <div class="item2">
-                <label for="">Nomor telepon</label>
-                <input type="text" placeholder="08123456789">
-            </div>
-            <div class="item3">
-                <label for="">Password</label>
-                <input type="password" placeholder="**********">
-            </div>
-            <div class="item4">
-                <input type="checkbox" >
-                <label for="">Ingat saya</label>
-                <a href="">Lupa Password?</a>
-            </div>
-            <div class="item5">
-                <button type="button">Login</button>
-            </div>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="left-section">
+        <div class="judul">
+          <label for="">Wovey</label>
+          <label for="">Foodcourt.</label>
         </div>
-            <div class="item6">
+        <div class="form-container">
+          <div class="header">
+            <label for="" value="1">Selamat Datang</label>
+            <label for="" value="2">Mari masuk ke akun anda!</label>
+          </div>
+          <form th:method="POST" th:action="@{/login/verify}">
+            <div class="noTelp">
+              <label for="">Nomor telepon</label>
+              <input
+                type="text"
+                name="noHp"
+                th:value="${noHp}"
+                placeholder="Ex: 08123456789"
+              />
             </div>
-    </main>
-</body>
+            <div class="pass">
+              <label for="">Password</label>
+              <input
+                type="password"
+                name="password"
+                th:value="${password}"
+                placeholder="**********"
+              />
+            </div>
+            <br />
+            <div class="button-submit">
+              <button type="submit" value="LOGIN" class="login-button">
+                Log In
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="pict-right">
+        <img src="./Assets/Login/loginPic.png" />
+      </div>
+    </div>
+  </body>
 </html>
