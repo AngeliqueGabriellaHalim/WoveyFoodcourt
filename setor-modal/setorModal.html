@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="setorModal.css">
     <script src="setorModal.js"defer></script>
-    <title>Penjualan</title>
+    <title>Setor Modal</title>
 </head>
 <body>
     <div class="page-container">
@@ -71,7 +71,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="nominal">Masukkan nominal</label>
-                                <input type="text" id="nominal" name="nominal" placeholder="Nominal setor modal">
+                                <input type="text" id="nominal" name="nominal" placeholder="Nominal setor modal. Contoh: 900000">
                             </div>
                         </div>
 
@@ -87,7 +87,7 @@
                         Rp.xxxx.xxx
                     </div>
                 </div>
-                <img src="../assets/modal.png">
+                <img src="../assets/modal.png" class="illust-setor-modal">
 
             </div>
 
@@ -99,14 +99,16 @@
             
             <h1>Apa anda ingin simpan transaksi ini?</h1>
             <p>Pastikan informasi yang diisi sudah benar!</p>
-            <button class="no-btn">TIDAK</button>
-            <button class="yes-btn">YA</button>
+            <div class="buttons">
+                <button class="no-btn">TIDAK</button>
+                <button class="yes-btn">YA</button>
+            </div>
         </div>
     </div>
     <!-- Overlay sukses-->
     <div id="transaction-added" class="overlay-sukses hidden">
         <div class="overlay-content">
-            <img src="check-icon0.png" alt="Check Icon" class="check-icon">
+            <img src="../assets/check-icon0.png" alt="Check Icon" class="check-icon">
             <h1>Transaksi berhasil ditambahkan</h1>
             <p>Periksa tab "Keuangan" untuk melihat transaksi yang baru anda tambahkan!</p>
             

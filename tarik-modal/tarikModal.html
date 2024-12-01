@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="tarikModal.css">
     <script src="tarikModal.js"defer></script>
-    <title>Penjualan</title>
+    <title>Tarik Modal</title>
 </head>
 <body>
     <div class="page-container">
@@ -16,7 +16,7 @@
 
         <!-- Header Section -->
         <div class="header">
-            <p class="dashboard-header"><span class="transaksiClass">Transaksi</span> > <span class="setorModalClass">Tarik Modal</span></p>
+            <p class="dashboard-header"><span class="transaksiClass">Transaksi</span> > <span class="tarikModalClass">Tarik Modal</span></p>
             <img class="profile" src="../assets/generic-avatar0.svg" />
         </div>
 
@@ -74,8 +74,8 @@
                                 <input type="text" id="nominal" name="nominal" placeholder="Nominal tarik modal">
                             </div>
                             <div class="form-group">
-                                <label for="nominal">Masukkan rekening tujuan</label>
-                                <input type="text" id="nominal" name="nominal" placeholder="Nomor rekening tujuan penarikan modal">
+                                <label for="rekening">Masukkan rekening tujuan</label>
+                                <input type="text" id="rekening" name="rekening" placeholder="Nomor rekening tujuan penarikan modal">
                             </div>
                             <div class="warning">Nominal tidak dapat melebihi saldo saat ini</div>
                         </div>
@@ -104,14 +104,16 @@
             
             <h1>Apa anda ingin simpan transaksi ini?</h1>
             <p>Pastikan informasi yang diisi sudah benar!</p>
-            <button class="no-btn">TIDAK</button>
-            <button class="yes-btn">YA</button>
+            <div class="buttons">
+                <button class="no-btn">TIDAK</button>
+                <button class="yes-btn">YA</button>
+            </div>
         </div>
     </div>
     <!-- Overlay sukses-->
     <div id="transaction-added" class="overlay-sukses hidden">
         <div class="overlay-content">
-            <img src="check-icon0.png" alt="Check Icon" class="check-icon">
+            <img src="../assets/check-icon0.png" alt="Check Icon" class="check-icon">
             <h1>Transaksi berhasil ditambahkan</h1>
             <p>Periksa tab "Keuangan" untuk melihat transaksi yang baru anda tambahkan!</p>
             

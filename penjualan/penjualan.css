@@ -15,7 +15,7 @@
 
 body{
     font-family: "Inter-SemiBold", sans-serif;
-
+    margin: 0;
     
 }
 .logo {
@@ -106,14 +106,14 @@ span{
     margin-bottom: 5px;
 }
 .form-group input {
-    width: 100%;
+    
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 14px;
 }
 .form-group select {
-    width: 100%;
+    width:70%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -121,17 +121,20 @@ span{
 }
 .form-group input:focus {
     outline: none;
-    border-color: #6200ee;
+    border-color: #0058EA;
 }
 .submit-btn {
-    width: 100%;
+    width: 150px;
     padding: 10px;
-    background-color: #6200ee;
+    background-color: #0058EA;
     color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 15px;
     font-size: 16px;
     cursor: pointer;
+    margin-top: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
 }
 .submit-btn:hover {
     background-color: #4500b3;
@@ -169,7 +172,6 @@ span{
     grid-area: saldo;
     display: grid;
     justify-content: space-evenly;
-    row-gap: 5px;
     align-items: center;
     grid-template-columns: auto auto;
     grid-template-areas: 
@@ -177,21 +179,22 @@ span{
     "icon nominal";
     box-sizing: border-box;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    
-
+    margin: 20px;
+    column-gap: 10px;
 }
 
 .logo-saldo{
     grid-area:icon;
 }
 .logo-saldo{
-    width:70px;
+    width:50px;
 }
 .saldo-title{
     grid-area: title;
     align-self: flex-end;
     font-size: 13px;
     font-weight:5;
+    color:#343c6a;
 }
 .nominal-saldo{
     grid-area: nominal;
@@ -214,6 +217,7 @@ span{
     justify-content: center;
     align-items: center;
     z-index: 1000;
+    
 }
 
 .overlay-konfirm.hidden {
@@ -224,13 +228,18 @@ span{
     filter: blur(5px);
 }
 
-.overlay-content {
-    background: white;
+.overlay-konfirm>.overlay-content {
+    background: #F5F7FA;
     padding: 30px;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     width:32%;
+    display: flex;
+    flex-direction: column;
+    height:40%;
+    justify-content: center;
+    align-items: center;
 }
 
 .overlay-content h1 {
@@ -241,7 +250,9 @@ span{
 .overlay-content p {
     margin-bottom: 20px;
     color: #131832;
-    font-weight: 200;
+    font-weight:lighter;
+    font-size: 15px;
+    width: 75%;
 }
 .check-icon{
     width: 100px;
@@ -275,19 +286,25 @@ span{
 .overlay-sukses.hidden {
     display: none;
 }
+.overlay-sukses>.overlay-content {
+    background: #F5F7FA;
+    padding: 30px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width:40%;
+    display: flex;
+    flex-direction: column;
+    height:60%;
+    justify-content: center;
+    align-items: center;
+}
 
 .container.blurred{
     filter: blur(5px);
+    overflow: hidden;
 }
 
-.overlay-content {
-    background: white;
-    padding: 30px;
-    text-align: center;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    width:32%;
-}
 
 .overlay-content h1 {
     margin-bottom: 15px;
@@ -313,16 +330,87 @@ span{
     cursor: pointer;
 }
 
-.labelHarga{
-    color:#a0a2b3;
+
+
+.content-container{
+    display: grid;
+    grid-template-areas: 
+    "form saldo"
+    "form bon";
+    gap:30px;
+    grid-template-rows: 120px 2fr;
+}
+
+.form-container{
+    grid-area: form;
+}
+
+.container-saldo{
+    grid-area: saldo;
+    width: 60%;
+    padding: 15px;
+    margin-top:20px;
+    height:100px;
+}
+.bon{
+    grid-area: bon;
+}
+
+.warning{
+    color: red;
+}
+
+#rekening{
+    width: 90%;
+}
+
+.form-container{
+    margin-top: 20px;
+}
+
+button{
+    padding: 10px;
+    width:80px;
+    border: none;
+    color:white;
+    border-radius: 20px;
+    cursor:pointer;
+}
+
+.yes-btn{
+    width: 80px;
+    background-color: #09B96D;
+
+}
+
+.no-btn{
+    width:80px;
+    background-color: #FF625C;
+
+}
+.buttons{
+    display: flex;
+    gap: 35%;
+    justify-content: center;
+    margin-top: 50px;
+    width: 100%;
+}
+
+.overlay-content p{
+    margin: 0;
+}
+
+#nominal{
+    width: 90%;
+}
+#deskripsi{
+    width: 90%;
 }
 table {
     font-family: "Inter-SemiBold", sans-serif;
-    border-collapse: collapse;
     width: 100%;
     background-color: white;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
+    border-radius: 15px;
     margin-top : 30px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
@@ -339,5 +427,5 @@ table {
   
   table th {
     padding: 10px 10px;
-    color: #343c6a;
+    color: #718ebf;
   }
