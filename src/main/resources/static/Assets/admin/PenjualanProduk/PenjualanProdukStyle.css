@@ -27,6 +27,9 @@ a {
   letter-spacing: -0.01em;
 }
 
+a:hover {
+  text-decoration: underline;
+}
 
 h3 {
   font-family: "Inter-SemiBold", sans-serif;
@@ -61,7 +64,7 @@ h3 {
   padding: 5px;
 }
 
-.nav-dashboard {
+.nav-penjualan {
   color: #0058ea;
   font-weight: bold;
 }
