@@ -163,7 +163,8 @@ form {
   margin-bottom: 20px;
 }
 
-.profile-item label {
+.profile-item label,
+.foto-produk-text {
   font-weight: bold;
   color: #343c6a;
   display: block;
