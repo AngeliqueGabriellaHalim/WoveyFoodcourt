@@ -1,3 +1,7 @@
+body {
+  margin: 0px;
+}
+
 /* Grid Layout */
 .page-container {
   display: grid;
@@ -69,10 +73,14 @@ h3 {
   text-decoration: none;
 }
 
-.navigation>div {
+.navigation > div {
   display: flex;
   column-gap: 15px;
   align-items: center;
+}
+
+.navigation > div:hover {
+  text-decoration: underline;
 }
 
 .navigation img {

@@ -15,8 +15,25 @@ p {
 
 body {
   font-family: "Inter-SemiBold", sans-serif;
-  margin: 0;
+  margin: 0px;
 }
+
+/* Warna default untuk teks pada navigasi */
+a {
+  color: #b1b1b1; /* Warna biru standar */
+  text-decoration: none; /* Menghilangkan underline pada link */
+}
+
+/* Warna saat link aktif (dipilih) */
+a:active {
+  color: #b1b1b1; /* Warna tetap sama saat aktif */
+}
+
+/* Warna saat hover pada link */
+a:hover {
+  text-decoration: underline; /* Warna biru yang lebih gelap saat hover */
+}
+
 .logo {
   grid-area: logo;
   display: flex;
@@ -36,7 +53,7 @@ body {
   padding: 20px;
 }
 
-.produk {
+.produk a {
   color: #0058ea;
   font-weight: bold;
 }
@@ -80,6 +97,10 @@ body {
 .profile-header {
   font-weight: 600;
   font-size: 28px;
+  color: #343c6a;
+}
+
+.profile-header a {
   color: #343c6a;
 }
 
@@ -183,24 +204,26 @@ textarea {
   font-family: "Inter-SemiBold", sans-serif;
 }
 
-.edit-profile-btn {
-  margin-top: 20px;
-}
-
-.edit-profile-btn button {
+input[type="submit"] {
   background-color: #0058ea;
+  text-decoration: none;
   color: white;
-  font-weight: 600;
-  border: none;
-  border-radius: 5px;
+  font-size: 14px;
   padding: 10px 20px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  width: 200px;
+  border-radius: 5px;
+  border: none;
+  transition: all 0.3s ease;
 }
 
-.edit-profile-btn button:hover {
+input[type="submit"]:hover {
   background-color: #0041b5;
+  color: #fafcfe;
+  cursor: pointer;
+}
+
+.current-photo {
+  display: flex;
+  flex-direction: column;
 }
 
 /* Overlay */

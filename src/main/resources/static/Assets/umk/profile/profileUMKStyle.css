@@ -22,7 +22,7 @@ h3 {
 
 body {
   font-family: "Inter-SemiBold", sans-serif;
-  margin: 0;
+  margin: 0px;
 }
 .logo {
   grid-area: logo;
@@ -43,7 +43,7 @@ body {
   padding: 20px;
 }
 
-.nav-dashboard {
+.nav-dashboard a {
   color: #0058ea;
   font-weight: bold;
 }
@@ -88,6 +88,11 @@ body {
   font-weight: 600;
   font-size: 28px;
   color: #343c6a;
+}
+
+.profile {
+  width: 50px;
+  height: 50px;
 }
 
 .header-text {
@@ -162,4 +167,20 @@ body {
 
 .edit-profile-btn button:hover {
   background-color: #0041b5;
+}
+
+/* Warna default untuk teks pada navigasi */
+a {
+  color: #b1b1b1; /* Warna biru standar */
+  text-decoration: none; /* Menghilangkan underline pada link */
+}
+
+/* Warna saat link aktif (dipilih) */
+a:active {
+  color: #b1b1b1; /* Warna tetap sama saat aktif */
+}
+
+/* Warna saat hover pada link */
+a:hover {
+  text-decoration: underline; /* Warna biru yang lebih gelap saat hover */
 }

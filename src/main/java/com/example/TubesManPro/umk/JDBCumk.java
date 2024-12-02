@@ -160,10 +160,10 @@ public class JDBCumk implements umkRepository {
         String directoryPath;
         switch (directoryType) {
             case 1:
-                directoryPath = "F:/Campus Stuff/Codes/TubesManPro/uploads/Assets/logoUMK/"; // Correct absolute path
+                directoryPath = "C:/Users/Junita Hariyati/OneDrive - Universitas Katolik Parahyangan/Semester 5/ManPro/Wovey Foodcourt/Project/Arlo/uploads/Assets/logoUMK/"; // Correct absolute path
                 break;
             case 2:
-                directoryPath = "F:/Campus Stuff/Codes/TubesManPro/uploads/Assets/gambarProduk/"; // Correct absolute
+                directoryPath = "C:/Users/Junita Hariyati/OneDrive - Universitas Katolik Parahyangan/Semester 5/ManPro/Wovey Foodcourt/Project/Arlo/uploads/Assets/gambarProduk/"; // Correct absolute
                                                                                                   // path
                 break;
             default:

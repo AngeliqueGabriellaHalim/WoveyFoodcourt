@@ -1,18 +1,15 @@
 body {
-  margin: 8px;
+  margin: 0px;
 }
 
-/* Grid Layout */
 .page-container {
   display: grid;
   grid-template-areas:
-    "logo header header"
-    "sidebar main main"
-    "sidebar . page-nav";
+    "logo header"
+    "sidebar main";
   grid-template-columns: 200px 1fr;
   grid-template-rows: 100px 1fr;
   height: 100vh;
-  background-color: #f5f7fa;
 }
 
 p {
@@ -64,7 +61,7 @@ h3 {
   padding: 5px;
 }
 
-.nav-penjualan {
+.nav-penjualan a {
   color: #0058ea;
   font-weight: bold;
 }
@@ -74,16 +71,18 @@ h3 {
   inset: 0;
   display: flex;
   flex-direction: column;
-  grid-area: nav;
   background-color: white;
   color: #b1b1b1;
-  row-gap: 30px;
 }
 
-.navigation>div {
+.navigation > div {
   display: flex;
   column-gap: 15px;
   align-items: center;
+}
+
+.navigation > div:hover {
+  text-decoration: underline;
 }
 
 .navigation img {
@@ -174,6 +173,12 @@ h3 {
   align-items: center;
 }
 
+.list-umk {
+  padding: 0px 20px;
+  overflow-y: auto;
+  max-height: 400px;
+}
+
 table {
   font-family: "Inter-SemiBold", sans-serif;
   border-collapse: collapse;
@@ -182,21 +187,46 @@ table {
   border-radius: 15px;
 }
 
+thead {
+  display: block;
+}
+
+tbody {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
 table tr {
   border-bottom: 1px solid #b1b1b1;
   text-align: center;
 }
 
-table td {
-  padding: 10px 10px;
+table td,
+table th {
+  padding: 10px;
+  text-align: center;
 }
 
 table th {
-  padding: 10px 10px;
   color: #718ebf;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 1;
 }
 
+/* Warna default untuk teks pada navigasi */
 a {
-  color: inherit;
-  text-decoration: none;
+  color: #b1b1b1; /* Warna biru standar */
+  text-decoration: none; /* Menghilangkan underline pada link */
+}
+
+/* Warna saat link aktif (dipilih) */
+a:active {
+  color: #b1b1b1; /* Warna tetap sama saat aktif */
+}
+
+/* Warna saat hover pada link */
+a:hover {
+  text-decoration: underline; /* Warna biru yang lebih gelap saat hover */
 }
