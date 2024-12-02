@@ -1,7 +1,10 @@
 package com.example.repositories;
 
+import java.io.IOException;
 import java.sql.Date;
 import java.util.List;
+
+import org.springframework.web.multipart.MultipartFile;
 
 import com.example.dataViews.KeuanganDataView;
 import com.example.dataViews.PenjualanDataUMKView;
@@ -22,5 +25,13 @@ public interface umkRepository {
 
     List<KeuanganDataView> findKeuanganView(String umk, Date start, Date end);
 
-    void edit(String nohp, String namaUMK, String namaPem, String email, String alamat, String deskripsi);
+    // will add another parameter here
+    void editProfile(String nohpEdit, String namaUMK, String namaPem, String email, String alamat, String deskripsi,
+            String nohp, MultipartFile profilePic) throws IOException;
+
+    void editProduk(String namaProdukEdit, String deskripsi, double harga, String namaProduk, MultipartFile productPic)
+            throws IOException;
+
+    void TambahProduk(String namaProduk, String deskripsi, String satuan, double harga, String nohp,
+            MultipartFile productPic) throws IOException;
 }

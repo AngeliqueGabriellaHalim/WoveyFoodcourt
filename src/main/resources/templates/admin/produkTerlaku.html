@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Daftar Produk Terlaku</title>
-  <link rel="stylesheet" href="/Assets/admin/PenjualanProduk/PenjualanProdukStyle.css" />
+  <link rel="stylesheet" href="/static/Assets/admin/PenjualanProduk/PenjualanProdukStyle.css" />
 </head>
 
 <body>
@@ -19,24 +19,24 @@
     <div class="sidebar">
       <div class="navigation">
         <div class="menu-item dashboard">
-          <img class="icon-dashboard" src="/Assets/admin/PenjualanProduk/home-20.svg" />
+          <img class="icon-dashboard" src="/static/Assets/admin/PenjualanProduk/home-20.svg" />
           <p class="nav-dashboard"><a th:href="@{/admin/home}">Dashboard</a></p>
         </div>
 
         <div class="menu-item daftar-umk">
-          <img class="icon-daftar-umk" src="/Assets/admin/PenjualanProduk/book-030.svg" />
+          <img class="icon-daftar-umk" src="/static/Assets/admin/PenjualanProduk/book-030.svg" />
           <p class="nav-daftar-umk"><a th:href="@{/admin/umk}">Daftar UMK</a></p>
         </div>
 
         <div class="menu-item verifikasi">
-          <img class="icon-verifikasi" src="/Assets/admin/PenjualanProduk/folder-check0.svg" />
+          <img class="icon-verifikasi" src="/static/Assets/admin/PenjualanProduk/folder-check0.svg" />
           <p class="nav-verifikasi"><a th:href="@{/admin/verifikasi}">Verifikasi</a></p>
           <span class="badge" th:text="${totalUmkTidakTerdaftarBadge}"
             th:style="|display: ${totalUmkTidakTerdaftarBadge > 0 ? 'inline-block' : 'none'}|"></span>
         </div>
 
         <div class="menu-item penjualan">
-          <img class="icon-penjualan" src="/Assets/admin/PenjualanProduk/icon-graph0.svg" />
+          <img class="icon-penjualan" src="/static/Assets/admin/PenjualanProduk/icon-graph0.svg" />
           <p class="nav-penjualan"><a th:href="@{/admin/penjualan}">Penjualan</a></p>
         </div>
 
@@ -45,8 +45,8 @@
         </div>
 
         <div class="menu-item log-out">
-          <img class="icon-log-out" src="/Assets/admin/PenjualanProduk/logout-040.svg" />
-          <p class="nav-log-out"><a th:href="@{login/out}">Log Out</a></p>
+          <img class="icon-log-out" src="/static/Assets/admin/PenjualanProduk/logout-040.svg" />
+          <p class="nav-log-out"><a th:href="@{/login/out}">Log Out</a></p>
         </div>
       </div>
     </div>
@@ -57,15 +57,15 @@
         <a class="penjualan-header" th:href="@{/admin/penjualan}">Penjualan</a>
         <a class="UMK-header" th:href="@{/admin/penjualan/terlaku}"> &gt; Produk</a>
       </div>
-      <img class="profile" src="/Assets/admin/PenjualanProduk/generic-avatar0.svg" />
+      <img class="profile" src="/static/Assets/admin/PenjualanProduk/generic-avatar0.svg" />
     </div>
 
     <div class="main-content">
       <div class="sub-header">
         <div class="sub-header-with-popup">
           <p class="sub-header-title">Daftar Produk Terlaku</p>
-          <img src="/Assets/admin/PenjualanProduk/tandatanya.svg" alt="" id="tandatanya" />
-          <img src="/Assets/admin/PenjualanProduk/popup1.svg" alt="" id="popup" style="visibility: hidden" />
+          <img src="/static/Assets/admin/PenjualanProduk/tandatanya.svg" alt="" id="tandatanya" />
+          <img src="/static/Assets/admin/PenjualanProduk/popup1.svg" alt="" id="popup" style="visibility: hidden" />
         </div>
 
         <div class="input-jumlah-umk">

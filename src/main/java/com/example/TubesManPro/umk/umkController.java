@@ -1,5 +1,6 @@
 package com.example.TubesManPro.umk;
 
+import java.io.IOException;
 import java.sql.Date;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.example.dataViews.KeuanganDataView;
 import com.example.dataViews.PenjualanDataUMKView;
@@ -123,6 +125,83 @@ public class umkController {
         return "umk/daftarProduk";
     }
 
+    @GetMapping("/produk/edit")
+    public String editProduk(@RequestParam(value = "namaProduk") String namaProduk, HttpSession session, Model model) {
+        LoginData login = (LoginData) session.getAttribute("loggedInUser");
+
+        if (login == null) {
+            return "redirect:/login/";
+        }
+
+        ProdukData produk = repo.findProduk(login.getNoHp(), namaProduk).get(0);
+
+        model.addAttribute("namaProduk", produk.getNamaProduk());
+        model.addAttribute("deskripsi", produk.getDeskripsi());
+        model.addAttribute("harga", produk.getHarga());
+        model.addAttribute("foto", produk.getFoto());
+
+        return "umk/editProduk";
+    }
+
+    @PostMapping("/produk/edit/submit")
+    public String editProdukSubmit(@RequestParam(value = "namaProduk") String namaProduk,
+            @RequestParam(value = "deskripsi") String deskripsi, @RequestParam(value = "harga") double harga,
+            @RequestParam(value = "productPic", required = false) MultipartFile productPic,
+            HttpSession session,
+            Model model) throws IOException {
+        LoginData login = (LoginData) session.getAttribute("loggedInUser");
+
+        if (login == null) {
+            return "redirect:/login/";
+        }
+
+        ProdukData produk = repo.findProduk(login.getNoHp(), namaProduk).get(0);
+
+        repo.editProduk(namaProduk, deskripsi, harga, produk.getNamaProduk(), productPic);
+
+        produk = repo.findProduk(login.getNoHp(), namaProduk).get(0);
+
+        model.addAttribute("namaProduk", produk.getNamaProduk());
+        model.addAttribute("deskripsi", produk.getDeskripsi());
+        model.addAttribute("harga", produk.getHarga());
+        model.addAttribute("foto", produk.getFoto());
+
+        return "umk/editProduk";
+    }
+
+    @GetMapping("/produk/tambah")
+    public String tambahProduk(HttpSession session, Model model) {
+        LoginData login = (LoginData) session.getAttribute("loggedInUser");
+
+        if (login == null) {
+            return "redirect:/login/";
+        }
+
+        return "umk/addProduk";
+    }
+
+    @PostMapping("/produk/tambah/submit")
+    public String tambahProdukSubmit(@RequestParam(value = "namaProduk") String namaProduk,
+            @RequestParam(value = "deskripsi") String deskripsi, @RequestParam(value = "satuan") String satuan,
+            @RequestParam(value = "harga") double harga,
+            @RequestParam(value = "productPic", required = false) MultipartFile productPic,
+            HttpSession session,
+            Model model) throws IOException {
+        LoginData login = (LoginData) session.getAttribute("loggedInUser");
+
+        if (login == null) {
+            return "redirect:/login/";
+        }
+
+        repo.TambahProduk(namaProduk, deskripsi, satuan, harga, login.getNoHp(), productPic);
+
+        List<ProdukData> produk = repo.findProduk(login.getNoHp());
+
+        model.addAttribute("results", produk);
+
+        return "umk/daftarProduk";
+    }
+
     @GetMapping("/penjualan")
     public String penjualan(
             @RequestParam(value = "transaksiStart", required = false, defaultValue = "1800-01-01") String start,
@@ -220,6 +299,8 @@ public class umkController {
 
         UMKData user = admin.findByNoHp(login.getNoHp());
 
+        System.out.println(user);
+
         model.addAttribute("namaUMK", user.getNamaUMK());
         model.addAttribute("namaPem", user.getNamaPem());
         model.addAttribute("email", user.getEmail());
@@ -240,7 +321,8 @@ public class umkController {
             @RequestParam(value = "deskripsi", required = false) String deskripsi,
             @RequestParam(value = "email", required = false) String email,
             @RequestParam(value = "nohp", required = false) String nohp,
-            HttpSession session, Model model) {
+            @RequestParam(value = "profilePic", required = false) MultipartFile profilePic,
+            HttpSession session, Model model) throws IOException {
         LoginData login = (LoginData) session.getAttribute("loggedInUser");
 
         if (login == null) {
@@ -249,7 +331,24 @@ public class umkController {
 
         UMKData user = admin.findByNoHp(login.getNoHp());
 
-        repo.edit(nohp, namaUMK, namaPem, email, alamat, deskripsi);
+        if (nohp == null || nohp.isEmpty()) {
+            model.addAttribute("error", "Nomor HP tidak boleh kosong!");
+
+            model.addAttribute("namaUMK", user.getNamaUMK());
+            model.addAttribute("namaPem", user.getNamaPem());
+            model.addAttribute("email", user.getEmail());
+            model.addAttribute("alamat", user.getAlamat());
+            model.addAttribute("deskripsi", user.getDeskripsi());
+            model.addAttribute("nohp", login.getNoHp());
+            model.addAttribute("tanggal", user.getTanggal());
+            model.addAttribute("logo", user.getLogo());
+
+            return "umk/editProfile";
+        }
+
+        repo.editProfile(nohp, namaUMK, namaPem, email, alamat, deskripsi, login.getNoHp(), profilePic);
+
+        user = admin.findByNoHp(login.getNoHp());
 
         model.addAttribute("namaUMK", user.getNamaUMK());
         model.addAttribute("namaPem", user.getNamaPem());

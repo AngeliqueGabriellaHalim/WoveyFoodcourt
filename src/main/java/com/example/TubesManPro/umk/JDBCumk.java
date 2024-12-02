@@ -1,5 +1,7 @@
 package com.example.TubesManPro.umk;
 
+import java.io.File;
+import java.io.IOException;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,6 +12,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.example.dataViews.KeuanganDataView;
 import com.example.dataViews.PenjualanDataUMKView;
@@ -91,10 +94,96 @@ public class JDBCumk implements umkRepository {
     }
 
     @Override
-    public void edit(String nohp, String namaUMK, String namaPem, String email, String alamat, String deskripsi) {
+    public void editProfile(String newHP, String namaUMK, String namaPem, String email, String alamat, String deskripsi,
+            String oldHP, MultipartFile profilePic) throws IOException {
+
+        // Fetch existing profilePicUrl from the database
+        String existingProfilePicUrl = jdbc.queryForObject(
+                "SELECT logo FROM umk WHERE nohp = ?", String.class, oldHP);
+
+        // Set profilePicUrl to existing value if no new file is uploaded
+        String profilePicUrl = existingProfilePicUrl;
+
+        if (profilePic != null && !profilePic.isEmpty()) {
+            profilePicUrl = saveFile(profilePic, 1);
+        }
+
         jdbc.update(
-                "UPDATE umk SET nohp=?, namaUMK=?, deskripsi=?, alamat=?, namapemilik=?, email=? WHERE nohp = ?;",
-                nohp, namaUMK, deskripsi, alamat, namaPem, email, nohp);
+                "UPDATE umk SET nohp=?, namaUMK=?, deskripsi=?, logo=?, alamat=?, namapemilik=?, email=? WHERE nohp = ?;",
+                newHP, namaUMK, deskripsi, profilePicUrl, alamat, namaPem, email, oldHP);
+    }
+
+    @Override
+    public void editProduk(String namaProdukEdit, String deskripsi, double harga, String namaProduk,
+            MultipartFile productPic) throws IOException {
+
+        // Fetch existing profilePicUrl from the database
+        String existingProductPicUrl = jdbc.queryForObject(
+                "SELECT foto FROM produk WHERE nama ILIKE ?", String.class, namaProduk);
+
+        // Set profilePicUrl to existing value if no new file is uploaded
+        String productPicUrl = existingProductPicUrl;
+
+        if (productPic != null && !productPic.isEmpty()) {
+            productPicUrl = saveFile(productPic, 2);
+        }
+
+        jdbc.update("UPDATE produk SET nama = ?, deskripsi = ?, foto=?, harga = ? WHERE nama ILIKE ?", namaProdukEdit,
+                deskripsi, productPicUrl, harga, namaProduk);
+
+    }
+
+    @Override
+    public void TambahProduk(String namaProduk, String deskripsi, String satuan, double harga, String nohp,
+            MultipartFile productPic) throws IOException {
+
+        String productPicUrl = null;
+
+        if (productPic != null && !productPic.isEmpty()) {
+            productPicUrl = saveFile(productPic, 2);
+        }
+
+        jdbc.update("INSERT INTO Produk (Nama, Deskripsi, foto, Satuan, Harga) VALUES (?, ?, ?, ?, ?);", namaProduk,
+                deskripsi, productPicUrl, satuan, harga);
+
+        jdbc.update("INSERT INTO ProdukUMK (nohpumk) VALUES (?)", nohp);
+    }
+
+    @SuppressWarnings("null")
+    private String saveFile(MultipartFile file, int directoryType) throws IOException {
+
+        String originalFilename = file.getOriginalFilename();
+        String extension = originalFilename.substring(originalFilename.lastIndexOf("."));
+        String fileName = System.currentTimeMillis() + extension;
+
+        // Make sure the directory path is based on the correct root path
+        String directoryPath;
+        switch (directoryType) {
+            case 1:
+                directoryPath = "F:/Campus Stuff/Codes/TubesManPro/uploads/Assets/logoUMK/"; // Correct absolute path
+                break;
+            case 2:
+                directoryPath = "F:/Campus Stuff/Codes/TubesManPro/uploads/Assets/gambarProduk/"; // Correct absolute
+                                                                                                  // path
+                break;
+            default:
+                throw new IllegalArgumentException("Invalid directory type");
+        }
+
+        // Create the directory if it doesn't exist
+        File directory = new File(directoryPath);
+        if (!directory.exists()) {
+            directory.mkdirs(); // Ensure the folder is created
+        }
+
+        // Save the file to the directory
+        File destination = new File(directory, fileName);
+        file.transferTo(destination);
+
+        System.out.println("File saved to: " + destination.getAbsolutePath());
+
+        // Return the relative URL for database storage
+        return "/Assets/" + (directoryType == 1 ? "logoUMK/" : "gambarProduk/") + fileName;
     }
 
     private PenjualanDataUMK mapRowToPenjualanData(ResultSet resultSet, int rowNum) throws SQLException {

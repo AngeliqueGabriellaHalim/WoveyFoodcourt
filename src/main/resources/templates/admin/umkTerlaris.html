@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="/Assets/admin/terlaris/updateStyle.css" />
+  <link rel="stylesheet" href="/static/Assets/admin/terlaris/updateStyle.css" />
   <title>Wovey Foodcourt - Homepage Admin</title>
 </head>
 
@@ -20,24 +20,24 @@
     <div class="sidebar">
       <div class="navigation">
         <div class="menu-item dashboard">
-          <img class="icon-dashboard" src="/Assets/admin/terlaris/home-20.svg" />
+          <img class="icon-dashboard" src="/static/Assets/admin/terlaris/home-20.svg" />
           <p class="nav-dashboard"><a th:href="@{/admin/home}">Dashboard</a></p>
         </div>
 
         <div class="menu-item daftar-umk">
-          <img class="icon-daftar-umk" src="/Assets/admin/terlaris/book-030.svg" />
+          <img class="icon-daftar-umk" src="/static/Assets/admin/terlaris/book-030.svg" />
           <p class="nav-daftar-umk"><a th:href="@{/admin/umk}">Daftar UMK</a></p>
         </div>
 
         <div class="menu-item verifikasi">
-          <img class="icon-verifikasi" src="/Assets/admin/terlaris/folder-check0.svg" />
+          <img class="icon-verifikasi" src="/static/Assets/admin/terlaris/folder-check0.svg" />
           <p class="nav-verifikasi"><a th:href="@{/admin/verifikasi}">Verifikasi</a></p>
           <span class="badge" th:text="${totalUmkTidakTerdaftarBadge}"
             th:style="|display: ${totalUmkTidakTerdaftarBadge > 0 ? 'inline-block' : 'none'}|"></span>
         </div>
 
         <div class="menu-item penjualan">
-          <img class="icon-penjualan" src="/Assets/admin/terlaris/icon-graph0.svg" />
+          <img class="icon-penjualan" src="/static/Assets/admin/terlaris/icon-graph0.svg" />
           <p class="nav-penjualan"><a th:href="@{/admin/penjualan}">Penjualan</a></p>
         </div>
 
@@ -46,8 +46,8 @@
         </div>
 
         <div class="menu-item log-out">
-          <img class="icon-log-out" src="/Assets/admin/terlaris/logout-040.svg" />
-          <p class="nav-log-out"><a th:href="@{login/out}">Log Out</a></p>
+          <img class="icon-log-out" src="/static/Assets/admin/terlaris/logout-040.svg" />
+          <p class="nav-log-out"><a th:href="@{/login/out}">Log Out</a></p>
         </div>
       </div>
     </div>
@@ -58,7 +58,7 @@
         <a class="penjualan-header" th:href="@{/admin/penjualan}">Penjualan</a>
         <a class="UMK-header" th:href="@{/admin/penjualan/terlaris}"> &gt; UMK</a>
       </div>
-      <img class="profile" src="/Assets/admin/terlaris/generic-avatar0.svg" />
+      <img class="profile" src="/static/Assets/admin/terlaris/generic-avatar0.svg" />
     </div>
 
     <!-- Main Content Section -->

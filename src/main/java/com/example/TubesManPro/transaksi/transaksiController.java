@@ -39,12 +39,16 @@ public class transaksiController {
 
     @GetMapping("/transaksi")
 
-    public String showTransaksi(HttpSession session) {
+    public String showTransaksi(HttpSession session, Model model) {
         LoginData login = (LoginData) session.getAttribute("loggedInUser");
 
         if (login == null) {
             return "redirect:/login/";
         }
+
+        UMKData user = admin.findByNoHp(login.getNoHp());
+
+        model.addAttribute("logo", user.getLogo());
 
         return "umk/transaksi";
     }
@@ -61,6 +65,7 @@ public class transaksiController {
 
         UMKDataView userView = admin.findViewByNoHp(login.getNoHp());
 
+        model.addAttribute("logo", userView.getLogo());
         model.addAttribute("saldo", userView.getSaldo());
 
         return "umk/transaksi/setorModal";
@@ -85,6 +90,7 @@ public class transaksiController {
 
         UMKDataView userView = admin.findViewByNoHp(login.getNoHp());
 
+        model.addAttribute("logo", userView.getLogo());
         model.addAttribute("saldo", userView.getSaldo());
         model.addAttribute("nominal", "");
         model.addAttribute("success", true);
@@ -101,6 +107,8 @@ public class transaksiController {
         }
 
         UMKDataView userView = admin.findViewByNoHp(login.getNoHp());
+
+        model.addAttribute("logo", userView.getLogo());
 
         model.addAttribute("saldo", userView.getSaldo());
 
@@ -135,6 +143,7 @@ public class transaksiController {
 
         userView = admin.findViewByNoHp(login.getNoHp());
 
+        model.addAttribute("logo", userView.getLogo());
         model.addAttribute("saldo", userView.getSaldo());
         model.addAttribute("nominal", "");
         model.addAttribute("success", true);
@@ -152,6 +161,9 @@ public class transaksiController {
 
         List<ProdukData> produk = umk.findProduk(login.getNoHp());
 
+        UMKDataView userView = admin.findViewByNoHp(login.getNoHp());
+
+        model.addAttribute("logo", userView.getLogo());
         model.addAttribute("products", produk);
         model.addAttribute("saldo", admin.findViewByNoHp(login.getNoHp()).getSaldo());
 
@@ -193,7 +205,9 @@ public class transaksiController {
         List<ProdukData> produk = umk.findProduk(login.getNoHp());
         model.addAttribute("products", produk);
 
-        // Add updated cart to model
+        UMKDataView userView = admin.findViewByNoHp(login.getNoHp());
+
+        model.addAttribute("logo", userView.getLogo());
         model.addAttribute("results", cart);
         model.addAttribute("tanggal", tanggal);
         model.addAttribute("saldo", admin.findViewByNoHp(login.getNoHp()).getSaldo());
@@ -217,6 +231,7 @@ public class transaksiController {
 
         UMKDataView userView = admin.findViewByNoHp(login.getNoHp());
 
+        model.addAttribute("logo", userView.getLogo());
         model.addAttribute("saldo", userView.getSaldo());
         model.addAttribute("success", true);
 
@@ -233,6 +248,7 @@ public class transaksiController {
 
         UMKDataView userView = admin.findViewByNoHp(login.getNoHp());
 
+        model.addAttribute("logo", userView.getLogo());
         model.addAttribute("saldo", userView.getSaldo());
 
         return "umk/transaksi/biayaOps";
@@ -265,6 +281,7 @@ public class transaksiController {
 
         userView = admin.findViewByNoHp(login.getNoHp());
 
+        model.addAttribute("logo", userView.getLogo());
         model.addAttribute("saldo", userView.getSaldo());
         model.addAttribute("nominal", "");
         model.addAttribute("success", true);

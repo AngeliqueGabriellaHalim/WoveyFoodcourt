@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Daftar UMK</title>
-    <link rel="stylesheet" href="/Assets/admin/DaftarUMK/daftarUmk.css" />
+    <link rel="stylesheet" href="/static/Assets/admin/DaftarUMK/daftarUmk.css" />
 </head>
 
 <body>
@@ -17,28 +17,28 @@
         <!-- Header Section -->
         <div class="header">
             <p class="dashboard-header">Daftar UMK</p>
-            <img class="profile" src="/Assets/admin/verifikasi/generic-avatar0.svg" />
+            <img class="profile" src="/static/Assets/admin/verifikasi/generic-avatar0.svg" />
         </div>
 
         <!-- Sidebar Section -->
         <div class="sidebar">
             <div class="navigation">
                 <div class="menu-item dashboard">
-                    <img class="icon-dashboard" src="/Assets/admin/DaftarUMK/icon-dashboard.svg" />
+                    <img class="icon-dashboard" src="/static/Assets/admin/DaftarUMK/icon-dashboard.svg" />
                     <p class="nav-dashboard">
                         <a th:href="@{/admin/home}">Dashboard</a>
                     </p>
                 </div>
 
                 <div class="menu-item daftar-umk">
-                    <img class="icon-daftar-umk" src="/Assets/admin/DaftarUMK/icon-daftar-umk.svg" />
+                    <img class="icon-daftar-umk" src="/static/Assets/admin/DaftarUMK/icon-daftar-umk.svg" />
                     <p class="nav-daftar-umk">
                         <a th:href="@{/admin/umk}">Daftar UMK</a>
                     </p>
                 </div>
 
                 <div class="menu-item verifikasi">
-                    <img class="icon-verifikasi" src="/Assets/admin/DaftarUMK/icon-verifikasi.svg" />
+                    <img class="icon-verifikasi" src="/static/Assets/admin/DaftarUMK/icon-verifikasi.svg" />
                     <p class="nav-verifikasi">
                         <a th:href="@{/admin/verifikasi}">Verifikasi</a>
                     </p>
@@ -47,7 +47,7 @@
                 </div>
 
                 <div class="menu-item penjualan">
-                    <img class="icon-penjualan" src="/Assets/admin/DaftarUMK/icon-penjualan.svg" />
+                    <img class="icon-penjualan" src="/static/Assets/admin/DaftarUMK/icon-penjualan.svg" />
                     <p class="nav-penjualan">
                         <a th:href="@{/admin/penjualan}">Penjualan</a>
                     </p>
@@ -58,13 +58,8 @@
                 </div>
 
                 <div class="menu-item log-out">
-                    <img class="icon-log-out" src="/Assets/admin/DaftarUMK/icon-logout.svg" />
-                    <p class="nav-log-out">Log Out</p>
-                </div>
-
-                <div class="menu-item bantuan">
-                    <img class="icon-bantuan" src="/Assets/admin/DaftarUMK/icon-bantuan.svg" />
-                    <p class="nav-bantuan">Bantuan</p>
+                    <img class="icon-log-out" src="/static/Assets/admin/DaftarUMK/icon-logout.svg" />
+                    <p class="nav-log-out"><a th:href="@{/login/out}">Log Out</a></p>
                 </div>
             </div>
         </div>
