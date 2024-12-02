@@ -1,242 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Edit Profile UMK</title>
-    <link
-      href="/static/Assets/umk/profile/editProfileStyle.css"
-      rel="stylesheet"
-    />
-  </head>
 
-  <body>
-    <div class="page-container">
-      <div class="logo">
-        <p class="wovey">Wovey<br />Foodcourt .</p>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edit Profile UMK</title>
+  <link href="/static/Assets/umk/profile/editProfileStyle.css" rel="stylesheet" />
+</head>
 
-      <!-- Sidebar Section -->
-      <div class="sidebar">
-        <div class="navigation">
-          <div class="menu-item dashboard">
-            <img
-              class="icon-dashboard"
-              src="/static/Assets/umk/profile/icon-nav-dashboard0.svg"
-            />
-            <p class="nav-dashboard"><a th:href="@{/umk/home}">Dashboard</a></p>
-          </div>
+<body>
+  <div class="page-container">
+    <div class="logo">
+      <p class="wovey">Wovey<br />Foodcourt .</p>
+    </div>
 
-          <div class="menu-item produk">
-            <img
-              class="icon-produk"
-              src="/static/Assets/umk/profile/icon-produk.svg"
-            />
-            <p class="nav-produk"><a th:href="@{/umk/produk}">Produk</a></p>
-          </div>
-
-          <div class="menu-item transaksi">
-            <img
-              class="icon-transaksi"
-              src="/static/Assets/umk/profile/icon-transaksi0.svg"
-            />
-            <p class="nav-transaksi">
-              <a th:href="@{/umk/transaksi}">Transaksi</a>
-            </p>
-          </div>
-
-          <div class="menu-item keuangan">
-            <img
-              class="icon-keuangan"
-              src="/static/Assets/umk/profile/icon-keuangan0.svg"
-            />
-            <p class="nav-keuangan">
-              <a th:href="@{/umk/keuangan}">Keuangan</a>
-            </p>
-          </div>
-          <div class="menu-item penjualan">
-            <img
-              class="icon-penjualan"
-              src="/static/Assets/umk/profile/icon-penjualan.svg"
-            />
-            <p class="nav-penjualan">
-              <a th:href="@{/umk/penjualan}">Penjualan</a>
-            </p>
-          </div>
-
-          <div class="menu-item log-out">
-            <img
-              class="icon-log-out"
-              src="/static/Assets/umk/profile/icon-logout.svg"
-            />
-            <p class="nav-log-out"><a th:href="@{/login/out}">Log Out</a></p>
-          </div>
+    <!-- Sidebar Section -->
+    <div class="sidebar">
+      <div class="navigation">
+        <div class="menu-item dashboard">
+          <img class="icon-dashboard" src="/static/Assets/umk/profile/icon-nav-dashboard0.svg" />
+          <p class="nav-dashboard"><a th:href="@{/umk/home}">Dashboard</a></p>
         </div>
-      </div>
 
-      <!-- Header Section -->
-      <div class="header">
-        <div class="header-text">
-          <p class="profile-header" id="profile">
-            <a th:href="@{/umk/profile}">Profile</a>
+        <div class="menu-item produk">
+          <img class="icon-produk" src="/static/Assets/umk/profile/icon-produk.svg" />
+          <p class="nav-produk"><a th:href="@{/umk/produk}">Produk</a></p>
+        </div>
+
+        <div class="menu-item transaksi">
+          <img class="icon-transaksi" src="/static/Assets/umk/profile/icon-transaksi0.svg" />
+          <p class="nav-transaksi">
+            <a th:href="@{/umk/transaksi}">Transaksi</a>
           </p>
-          <p class="profile-header">&gt;</p>
-          <p class="profile-header" id="editProfile">Edit Profile</p>
         </div>
-        <!-- <img class="profile" th:src="${logo}" /> -->
-      </div>
 
-      <!-- <div class="main-content">
+        <div class="menu-item keuangan">
+          <img class="icon-keuangan" src="/static/Assets/umk/profile/icon-keuangan0.svg" />
+          <p class="nav-keuangan">
+            <a th:href="@{/umk/keuangan}">Keuangan</a>
+          </p>
+        </div>
+        <div class="menu-item penjualan">
+          <img class="icon-penjualan" src="/static/Assets/umk/profile/icon-penjualan.svg" />
+          <p class="nav-penjualan">
+            <a th:href="@{/umk/penjualan}">Penjualan</a>
+          </p>
+        </div>
+
+        <div class="menu-item log-out">
+          <img class="icon-log-out" src="/static/Assets/umk/profile/icon-logout.svg" />
+          <p class="nav-log-out"><a th:href="@{/login/out}">Log Out</a></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Header Section -->
+    <div class="header">
+      <div class="header-text">
+        <p class="profile-header" id="profile">
+          <a th:href="@{/umk/profile}">Profile</a>
+        </p>
+        <p class="profile-header">&gt;</p>
+        <p class="profile-header" id="editProfile">Edit Profile</p>
+      </div>
+      <!-- <img class="profile" th:src="${logo}" /> -->
+    </div>
+
+    <div class="main-content">
       <div class="profile-details">
-        <form class="profile-form">
+        <form th:action="@{/umk/profile/edit/save}" th:method="post" class="edit-form" enctype="multipart/form-data">
           <div class="left-profile">
             <div class="profile-item">
               <label for="nama-umk">Nama UMK</label>
-              <input type="text" id="nama-umk" name="nama-umk" placeholder="Ex: Warung Sate Bu Ngantuk" />
+              <input type="text" id="nama-umk" name="namaUMK" th:value="${namaUMK}" />
             </div>
 
             <div class="profile-item">
               <label for="nama-pemilik">Nama Pemilik</label>
-              <input type="text" id="nama-pemilik" name="nama-pemilik" placeholder="Ex: Turu Asinta" />
+              <input type="text" id="nama-pemilik" name="namaPem" th:value="${namaPem}" />
             </div>
 
             <div class="profile-item">
               <label for="alamat">Alamat</label>
-              <textarea id="alamat" name="alamat" placeholder="Ex: Jl. Kopo Indah No. 2A, Bandung"></textarea>
+              <textarea id="alamat" name="alamat" th:text="${alamat}"></textarea>
             </div>
 
             <div class="profile-item">
               <label for="deskripsi">Deskripsi</label>
-              <textarea id="deskripsi" name="deskripsi" placeholder="Ex: Menjual makanan cepat saji"></textarea>
+              <textarea id="deskripsi" name="deskripsi" th:text="${deskripsi}"></textarea>
             </div>
           </div>
 
           <div class="right-profile">
             <div class="profile-item">
               <label for="email">Email</label>
-              <input type="text" id="email" name="email" placeholder="Ex: example@gmail.com" />
+              <input type="text" id="email" name="email" th:value="${email}" />
             </div>
             <div class="profile-item">
               <label for="nomor-telepon">Nomor Telepon</label>
-              <input type="text" id="nomor-telepon" name="nomor-telepon" placeholder="Ex: 08123456789" />
+              <input type="text" id="nomor-telepon" name="nohp" th:value="${nohp}" />
+              <p style="color: red" th:text="${error}"></p>
             </div>
 
             <div class="profile-logo">
               <label for="logo-umk">Logo UMK</label>
-              <input type="file" id="logo-umk" name="logo-umk" accept="image/*" />
+              <input type="file" id="logo-umk" name="profilePic" accept="image/*" />
             </div>
-          </div> -->
+          </div>
 
-      <!-- Save Changes Button -->
-      <!-- <div class="edit-profile-btn">
-            <button type="button" class="submit-button">
-              Simpan Perubahan
-            </button>
+          <!-- Save Changes Button -->
+          <div class="edit-profile-btn">
+            <input type="submit" class="submit-button" value="Simpan Perubahan">
           </div>
         </form>
       </div>
-    </div> -->
-
-      <div class="main-content">
-        <div class="profile-details">
-          <form
-            th:action="@{/umk/profile/edit/save}"
-            th:method="post"
-            class="edit-form"
-            enctype="multipart/form-data"
-          >
-            <div class="left-profile">
-              <div class="profile-item">
-                <label for="nama-umk">Nama UMK</label>
-                <input
-                  type="text"
-                  id="nama-umk"
-                  name="namaUMK"
-                  th:value="${namaUMK}"
-                />
-              </div>
-
-              <div class="profile-item">
-                <label for="nama-pemilik">Nama Pemilik</label>
-                <input
-                  type="text"
-                  id="nama-pemilik"
-                  name="namaPem"
-                  th:value="${namaPem}"
-                />
-              </div>
-
-              <div class="profile-item">
-                <label for="alamat">Alamat</label>
-                <textarea
-                  id="alamat"
-                  name="alamat"
-                  th:text="${alamat}"
-                ></textarea>
-              </div>
-
-              <div class="profile-item">
-                <label for="deskripsi">Deskripsi</label>
-                <textarea
-                  id="deskripsi"
-                  name="deskripsi"
-                  th:text="${deskripsi}"
-                ></textarea>
-              </div>
-            </div>
-
-            <div class="right-profile">
-              <div class="profile-item">
-                <label for="email">Email</label>
-                <input
-                  type="text"
-                  id="email"
-                  name="email"
-                  th:value="${email}"
-                />
-              </div>
-              <div class="profile-item">
-                <label for="nomor-telepon">Nomor Telepon</label>
-                <input
-                  type="text"
-                  id="nomor-telepon"
-                  name="nohp"
-                  th:value="${nohp}"
-                />
-                <p style="color: red" th:text="${error}"></p>
-              </div>
-
-              <div class="profile-logo">
-                <label for="logo-umk">Logo UMK</label>
-                <input
-                  type="file"
-                  id="logo-umk"
-                  name="profilePic"
-                  accept="image/*"
-                />
-              </div>
-            </div>
-
-            <!-- Save Changes Button -->
-            <div class="edit-profile-btn">
-              <button type="button" class="submit-button">
-                Simpan Perubahan
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
     </div>
+  </div>
+</body>
 
-    <!-- Overlay -->
-    <!-- <div id="regis-sent" class="overlay hidden">
-    <div class="overlay-content">
-      <img src="check-icon0.png" alt="Check Icon" class="check-icon" />
-      <h1>Apakah anda yakin ingin menyimpan perubahan?</h1>
-      <p>Cek kembali masukan anda!</p>
-      <button type="submit" class="yes-btn" id="confirm-yes">Ya</button>
-      <button class="no-btn" id="confirm-no">Tidak</button>
-    </div>
-  </div> -->
-  </body>
 </html>

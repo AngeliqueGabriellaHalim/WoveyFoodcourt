@@ -46,7 +46,7 @@ public class umkController {
             @RequestParam(value = "ulangPassword") String ulangPassword, Model model) {
 
         if (noHp.length() > 0 && namaUMK.length() > 0 && namaPemilik.length() > 0 && email.length() > 0
-                && password.length() > 0) {
+                && password.length() > 0 && password.equals(ulangPassword)) {
             regis.register(noHp, namaUMK, namaPemilik, email, password);
             return "redirect:/login/";
         } else {
@@ -323,6 +323,7 @@ public class umkController {
             @RequestParam(value = "nohp", required = false) String nohp,
             @RequestParam(value = "profilePic", required = false) MultipartFile profilePic,
             HttpSession session, Model model) throws IOException {
+
         LoginData login = (LoginData) session.getAttribute("loggedInUser");
 
         if (login == null) {
@@ -348,7 +349,15 @@ public class umkController {
 
         repo.editProfile(nohp, namaUMK, namaPem, email, alamat, deskripsi, login.getNoHp(), profilePic);
 
+        String password = login.getPass();
+
+        // reset the session, incase the person changes their phone number
+        session.setAttribute("loggedInUser", new LoginData(nohp, password, "umk"));
+
+        // refresh user from edited
         user = admin.findByNoHp(login.getNoHp());
+
+        session.setAttribute("umkData", user);
 
         model.addAttribute("namaUMK", user.getNamaUMK());
         model.addAttribute("namaPem", user.getNamaPem());

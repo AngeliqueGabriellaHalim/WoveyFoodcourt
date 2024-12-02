@@ -33,7 +33,7 @@ public class generalController {
 
         session.setAttribute("loggedInUser", null);
 
-        return "general/LoginPage";
+        return "redirect:/";
     }
 
     @PostMapping("/verify")

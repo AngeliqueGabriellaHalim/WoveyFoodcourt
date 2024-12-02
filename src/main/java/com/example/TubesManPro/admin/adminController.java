@@ -184,6 +184,7 @@ public class adminController {
 
                 List<PenjualanDataAdmin> terlaris;
                 if (filter != null) {
+                        model.addAttribute("filter", filter);
                         terlaris = repo.findPenjualan(filter);
                 } else {
                         terlaris = repo.findPenjualan();
@@ -203,6 +204,7 @@ public class adminController {
 
                 List<ProdukTerjualData> terlaku;
                 if (filter != null) {
+                        model.addAttribute("filter", filter);
                         terlaku = repo.findTerlaku(filter);
                 } else {
                         terlaku = repo.findTerlaku();

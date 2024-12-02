@@ -19,10 +19,11 @@ public class JDBCRegis implements registerRepo {
             String email, String password) {
         LocalDate today = LocalDate.now();
         Date tanggal = Date.valueOf(today);
-        jdbc.execute(
-                "INSERT INTO UMK (NoHP, NamaUMK, Deskripsi, Logo, Alamat, NamaPemilik, Email, Status, Tanggal, Saldo, Pass) VALUES ('"
-                        + hp + "','" + namaUMK + "',NULL,NULL,NULL,'" + namaPem
-                        + "','" + email + "','Belum Diverifikasi','" + tanggal + "', 0,'" + password + "')");
+        jdbc.update(
+                "INSERT INTO UMK (NoHP, NamaUMK, Deskripsi, Logo, Alamat, NamaPemilik, Email, Status, Tanggal, Saldo, Pass) VALUES (?,?,?,?,?,?,?,?,?,?,?)",
+                hp, namaUMK, null, "/static/Assets/admin/verifikasi/generic-avatar0.svg", null, namaPem, email,
+                "Belum Diverifikasi", tanggal, 0, password);
+
         jdbc.execute("INSERT INTO Pendaftaran (Tanggal, Status)VALUES ('" + tanggal + "','Belum Diverifikasi');");
     }
 }

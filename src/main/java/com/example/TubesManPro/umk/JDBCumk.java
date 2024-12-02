@@ -78,7 +78,7 @@ public class JDBCumk implements umkRepository {
     @Override
     public List<PenjualanDataUMKView> findPenjualanView(String umk, Date start, Date end) {
         List<PenjualanDataUMKView> penjualan = jdbc.query(
-                "SELECT DataProduk.IdProduk, DataProduk.Nama, DataProduk.\"Akumulasi Jumlah\", Produk.Harga, Produk.Harga * DataProduk.\"Akumulasi Jumlah\" AS \"Total\", DataProduk.Tanggal FROM (SELECT Produk.IdProduk, Produk.Nama, SUM(Nota.Kuantitas) AS \"Akumulasi Jumlah\", dataTransaksi.Tanggal FROM (SELECT * FROM Transaksi WHERE NoHpUMK = ? AND IdJenis = 2) AS dataTransaksi INNER JOIN Nota ON Nota.IdTransaksi = dataTransaksi.IdTransaksi INNER JOIN Produk ON Produk.IdProduk = Nota.IdProduk WHERE Tanggal >= ? AND Tanggal <= ? GROUP BY Produk.IdProduk, dataTransaksi.Tanggal, Produk.Nama) AS DataProduk INNER JOIN Produk ON Produk.IdProduk = DataProduk.IdProduk;",
+                "SELECT DataProduk.IdProduk, DataProduk.Nama, DataProduk.\"Akumulasi Jumlah\", Produk.Harga, Produk.Harga * DataProduk.\"Akumulasi Jumlah\" AS \"Total\", DataProduk.Tanggal FROM (SELECT Produk.IdProduk, Produk.Nama, SUM(Nota.Kuantitas) AS \"Akumulasi Jumlah\", dataTransaksi.Tanggal FROM (SELECT * FROM Transaksi WHERE NoHpUMK = ? AND IdJenis = 2) AS dataTransaksi INNER JOIN Nota ON Nota.IdTransaksi = dataTransaksi.IdTransaksi INNER JOIN Produk ON Produk.IdProduk = Nota.IdProduk WHERE Tanggal >= ? AND Tanggal <= ? GROUP BY Produk.IdProduk, dataTransaksi.Tanggal, Produk.Nama) AS DataProduk INNER JOIN Produk ON Produk.IdProduk = DataProduk.IdProduk ORDER BY tanggal DESC;",
                 this::mapRowToPenjualanDataView, umk, start, end);
 
         return penjualan;
@@ -87,7 +87,7 @@ public class JDBCumk implements umkRepository {
     @Override
     public List<KeuanganDataView> findKeuanganView(String umk, Date start, Date end) {
         List<KeuanganDataView> keuangan = jdbc.query(
-                "SELECT jenis, nominal, Tanggal FROM transaksi JOIN jenistransaksi ON transaksi.IdJenis = jenistransaksi.IdJenis WHERE nohpumk ilike ? AND tanggal >= ? AND tanggal <= ?",
+                "SELECT jenis, nominal, Tanggal FROM transaksi JOIN jenistransaksi ON transaksi.IdJenis = jenistransaksi.IdJenis WHERE nohpumk ilike ? AND tanggal >= ? AND tanggal <= ? ORDER BY tanggal DESC",
                 this::mapRowToKeuanganDataView, umk, start, end);
 
         return keuangan;
@@ -160,11 +160,13 @@ public class JDBCumk implements umkRepository {
         String directoryPath;
         switch (directoryType) {
             case 1:
-                directoryPath = "C:/Users/Junita Hariyati/OneDrive - Universitas Katolik Parahyangan/Semester 5/ManPro/Wovey Foodcourt/Project/Arlo/uploads/Assets/logoUMK/"; // Correct absolute path
+                directoryPath = "F:/Campus Stuff/Codes/TubesManPro/uploads/Assets/logoUMK/"; // Correct absolute
+                                                                                             // path
                 break;
             case 2:
-                directoryPath = "C:/Users/Junita Hariyati/OneDrive - Universitas Katolik Parahyangan/Semester 5/ManPro/Wovey Foodcourt/Project/Arlo/uploads/Assets/gambarProduk/"; // Correct absolute
-                                                                                                  // path
+                directoryPath = "F:/Campus Stuff/Codes/TubesManPro/uploads/Assets/gambarProduk/"; // Correct
+                                                                                                  // absolute
+                // path
                 break;
             default:
                 throw new IllegalArgumentException("Invalid directory type");
@@ -181,6 +183,8 @@ public class JDBCumk implements umkRepository {
         file.transferTo(destination);
 
         System.out.println("File saved to: " + destination.getAbsolutePath());
+
+        System.out.println(fileName);
 
         // Return the relative URL for database storage
         return "/Assets/" + (directoryType == 1 ? "logoUMK/" : "gambarProduk/") + fileName;

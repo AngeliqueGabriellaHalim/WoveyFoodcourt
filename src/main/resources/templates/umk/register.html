@@ -46,12 +46,15 @@
                 <div class="input-group pass">
                     <label for="password">Password</label>
                     <input type="password" id="password" name="password" th:value="${password}"
-                        placeholder="Minimal 8 digit">
+                        placeholder="Masukkan password anda">
                 </div>
                 <div class="input-group konfirm-pass">
                     <label for="konfirm-password">Konfirmasi Password</label>
                     <input type="password" id="konfirm-password" name="ulangPassword" th:value="${ulangPassword}"
                         placeholder="Masukkan kembali password">
+                </div>
+                <div>
+                    <p th:text="${error}" style="color: red;"></p>
                 </div>
                 <input type="button" id="submit-button" class="submit-button" value="Buat Akun">
             </form>

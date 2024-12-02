@@ -9,7 +9,7 @@
         body {
             margin: 0;
             font-family: "Inter-SemiBold", sans-serif;
-            background-color: #f9fafb;
+            background-color: #F5F7FA;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -27,22 +27,15 @@
             height: 500px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             border-radius: 25px;
+            box-sizing: border-box;
+            background-color: white;
         }
 
         .div1 {
             grid-area: h;
             padding: 40px;
-            display: grid;
-            grid-template-columns: 100%;
-            grid-template-rows: 200px 100px 50px 80px 100px 200px;
-            grid-template-areas:
-                "h1"
-                "h2"
-                "h3"
-                "h4"
-                "h5"
-                "h6"
-            ;
+            display: flex;
+            flex-direction: column;
         }
 
         .div1 .judul {
@@ -51,7 +44,7 @@
             font-family: sans-serif;
             color: #343C6A;
             font-weight: bold;
-            font-size: 48px;
+            font-size: 25px;
             align-items: flex-end;
         }
 
@@ -62,7 +55,8 @@
             font-family: sans-serif;
             color: #343C6A;
             font-weight: bold;
-            font-size: 40px;
+            font-size: 30px;
+            margin-top: 30px;
         }
 
         .item1 label[value="2"] {
@@ -71,7 +65,7 @@
             flex-direction: column;
             font-family: sans-serif;
             color: #313131;
-            font-size: 18px;
+            font-size: 16px;
         }
 
         .item2,
@@ -84,11 +78,10 @@
 
         .item2 label,
         .item3 label {
-            flex: 0.65;
             color: #343C6A;
             font-family: sans-serif;
             font-weight: 500;
-            font-size: 20px;
+            font-size: 15px;
         }
 
         .item2 input,
@@ -141,7 +134,6 @@
             color: white;
             font-family: sans-serif;
             width: 512px;
-            height: 48px;
             font-size: 16px;
             background-color: #2D60FF;
             border: #343C6A;
@@ -167,16 +159,24 @@
             background-color: #0058ea;
             border: 1px solid #b1b1b1;
             border-radius: 15px;
-            width: 150px;
-            height: 50px;
-            padding: 15px 15px;
+            width: 100px;
+            padding: 10px;
             color: white;
             font-family: "Inter-Regular", sans-serif;
             cursor: pointer;
         }
 
+        form {
+            width: 100%;
+        }
+
         .error {
             color: red;
+        }
+
+        .register-offer a {
+            color: #FF625C;
+            text-decoration: none;
         }
     </style>
 </head>
@@ -185,8 +185,7 @@
     <div class="container">
         <div class="div1">
             <div class="judul">
-                <label for="">Wovey</label>
-                <label for="">Foodcourt.</label>
+                Wovey<br>Foodcourt.
             </div>
             <div class="item1">
                 <label for="" value="1">Selamat Datang</label>
@@ -195,21 +194,25 @@
             <form th:method="POST" th:action="@{/login/verify}">
                 <div class="item2">
                     <label for="">Nomor telepon</label>
-                    <input type="text" name="noHp" th:value="${noHp}" placeholder="08123456789">
+                    <input type="text" name="noHp" th:value="${noHp}" placeholder="Masukkan nomor telpon anda">
                 </div>
                 <div class="item3">
                     <label for="">Password</label>
-                    <input type="password" name="password" th:value="${password}" placeholder="**********">
+                    <input type="password" name="password" th:value="${password}" placeholder="Masukkan password anda">
                 </div>
                 <br>
                 <p class="error" th:text="${error}"></p>
                 <div class="item5">
-                    <input type="submit" value="LOGIN" class="login-button"></input>
+                    <input type="submit" value="LOGIN" class="login-button" />
+                </div>
+                <br>
+                <div class="register-offer">
+                    Belum memiliki akun? <a th:href="@{/umk/registrasi}">Buat Akun</a>
                 </div>
             </form>
         </div>
         <div class="item6">
-            <img src="/static/Assets/Login/loginPic.png" />
+            <img src="../static/Assets/Login/loginPic.png" />
         </div>
     </div>
 </body>
